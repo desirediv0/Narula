@@ -365,14 +365,14 @@ export default function Home() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: '-40px' }}
                   transition={{ duration: 0.5, delay: idx * 0.07 }}
-                  className="flex items-center gap-3 rounded-2xl bg-white border border-slate-200/60 shadow-sm px-4 py-3.5"
+                  className="flex items-center gap-3 rounded-2xl bg-white border border-slate-200/60 shadow-sm px-3 py-3.5 sm:px-4"
                 >
                   <div className="h-10 w-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center shrink-0 border border-primary/15">
                     <Icon className="w-5 h-5" />
                   </div>
-                  <div>
-                    <div className="text-xl font-bold text-slate-900 leading-none">{s.number}</div>
-                    <div className="text-xs text-slate-500 mt-0.5">{s.label}</div>
+                  <div className="flex-1 min-w-0">
+                    <div className="text-lg sm:text-xl font-bold text-slate-900 leading-none wrap-break-word">{s.number}</div>
+                    <div className="text-[11px] sm:text-xs text-slate-500 mt-0.5 leading-snug">{s.label}</div>
                   </div>
                 </motion.div>
               );

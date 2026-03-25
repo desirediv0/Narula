@@ -87,13 +87,13 @@ export function Footer() {
           <div className="sm:col-span-2 lg:col-span-1">
             {/* Logo */}
             <Link href="/" className="inline-flex items-center gap-3 group mb-5">
-              <div className="relative h-14 w-14 rounded-2xl overflow-hidden border border-white/15 bg-white/10 shrink-0 transition-transform group-hover:scale-105 shadow-lg">
+              <div className="relative h-16 w-16 rounded-2xl overflow-hidden border border-white/15 bg-white/10 shrink-0 transition-transform group-hover:scale-105 shadow-lg">
                 <Image
                   src="/images/clinic-logo.png"
                   alt="Narula Clinic Logo"
                   fill
-                  sizes="56px"
-                  className="object-contain p-1"
+                  sizes="64px"
+                  className="object-contain p-0"
                 />
               </div>
               <div>

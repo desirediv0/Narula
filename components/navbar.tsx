@@ -53,17 +53,17 @@ export function Navbar() {
         )}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-[68px]">
+          <div className="flex items-center justify-between h-[80px]">
 
             {/* ── LOGO ── */}
             <Link href="/" className="flex items-center gap-3 group shrink-0">
-              <div className="relative h-12 w-12 rounded-xl overflow-hidden border border-slate-200/60 shadow-sm bg-white shrink-0 transition-transform group-hover:scale-105">
+              <div className="relative h-16 w-16 rounded overflow-hidden border border-slate-200/60 shadow-sm bg-white shrink-0 transition-transform group-hover:scale-105">
                 <Image
                   src="/images/clinic-logo.png"
                   alt="Narula Clinic Logo"
                   fill
-                  sizes="48px"
-                  className="object-contain p-0.5"
+                  sizes="106px"
+                  className="object-contain p-0 w-full h-full"
                   priority
                 />
               </div>
@@ -183,15 +183,15 @@ export function Navbar() {
               transition={{ type: 'spring', stiffness: 300, damping: 30 }}
             >
               {/* Drawer header */}
-              <div className="flex items-center justify-between px-5 py-4 border-b border-slate-100">
+              <div className="flex items-center justify-between px-5 py-2 border-b border-slate-100">
                 <div className="flex items-center gap-3">
-                  <div className="relative h-10 w-10 rounded-xl overflow-hidden border border-slate-200/60 bg-white shrink-0">
+                  <div className="relative h-16 w-16 rounded overflow-hidden border border-slate-200/60 bg-white shrink-0">
                     <Image
                       src="/images/clinic-logo.png"
                       alt="Narula Clinic Logo"
                       fill
-                      sizes="40px"
-                      className="object-contain p-0.5"
+                      sizes="44px"
+                      className="object-contain p-0"
                     />
                   </div>
                   <div>
