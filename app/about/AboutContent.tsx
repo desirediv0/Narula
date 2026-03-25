@@ -198,7 +198,7 @@ export function AboutContent() {
               <Card className="rounded-2xl border-slate-200/60 bg-white/60 backdrop-blur p-3 shadow-sm overflow-hidden">
                 <div className="relative h-[280px] sm:h-[320px] rounded-xl overflow-hidden bg-slate-100">
                   <Image
-                    src="/images/clinic-logo.png"
+                    src="/about.png"
                     alt="Narula Multispeciality Clinic"
                     fill
                     sizes="(max-width: 640px) 100vw, 50vw"
