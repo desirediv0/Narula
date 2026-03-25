@@ -1,10 +1,11 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
 import { AnimatePresence, motion } from 'framer-motion';
-import { Menu, Phone, X } from 'lucide-react';
+import { Menu, Phone, X, ChevronRight, MapPin, Clock } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
@@ -28,179 +29,273 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8);
+    const onScroll = () => setScrolled(window.scrollY > 0);
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  // Lock body scroll when drawer is open
+  useEffect(() => {
+    if (isOpen) document.body.style.overflow = 'hidden';
+    else document.body.style.overflow = '';
+    return () => { document.body.style.overflow = '' };
+  }, [isOpen]);
+
   return (
-    <nav
-      className={cn(
-        'sticky top-0 z-50 backdrop-blur-md border-b border-slate-200/50 transition-shadow',
-        scrolled ? 'shadow-lg bg-white/70' : 'bg-white/55'
-      )}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          {/* Left: Logo + Name */}
-          <Link href="/" className="flex items-center gap-3">
-            <img
-              src="/images/clinic-logo.png"
-              alt="Narula Multispeciality Clinic Logo"
-              className="h-10 w-10"
-            />
-            <span className="hidden sm:inline font-semibold text-lg text-slate-900">
-              Narula Multispeciality Clinic
-            </span>
-          </Link>
+    <>
+      <nav
+        className={cn(
+          'sticky top-0 z-50 transition-all duration-300',
+          scrolled
+            ? 'bg-white/95 backdrop-blur-md shadow-md shadow-slate-200/50 border-b border-slate-200/60'
+            : 'bg-white/70 backdrop-blur-sm border-b border-slate-200/30'
+        )}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-[68px]">
 
-          {/* Desktop Center Nav */}
-          <div className="hidden lg:flex items-center gap-7">
-            {navLinks.map((link) => {
-              const active = isLinkActive(pathname, link.href);
-              return (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className={cn(
-                    'group relative text-sm font-medium text-slate-700 transition-colors',
-                    active ? 'text-primary' : 'hover:text-primary/90'
-                  )}
-                >
-                  {link.label}
-                  <span
-                    aria-hidden="true"
+            {/* ── LOGO ── */}
+            <Link href="/" className="flex items-center gap-3 group shrink-0">
+              <div className="relative h-12 w-12 rounded-xl overflow-hidden border border-slate-200/60 shadow-sm bg-white shrink-0 transition-transform group-hover:scale-105">
+                <Image
+                  src="/images/clinic-logo.png"
+                  alt="Narula Clinic Logo"
+                  fill
+                  sizes="48px"
+                  className="object-contain p-0.5"
+                  priority
+                />
+              </div>
+              <div className="hidden sm:block">
+                <div className="font-bold text-slate-900 text-base leading-tight">
+                  Narula Multispeciality
+                </div>
+                <div className="text-xs text-primary font-medium leading-tight tracking-wide">
+                  Clinic · Najafgarh, Delhi
+                </div>
+              </div>
+            </Link>
+
+            {/* ── DESKTOP NAV ── */}
+            <div className="hidden lg:flex items-center gap-1">
+              {navLinks.map((link) => {
+                const active = isLinkActive(pathname, link.href);
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
                     className={cn(
-                      'absolute left-0 -bottom-2 h-[2px] w-full rounded-full bg-primary origin-left scale-x-0 transition-transform duration-300',
-                      active ? 'scale-x-100' : 'group-hover:scale-x-100'
+                      'relative px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200',
+                      active
+                        ? 'text-primary bg-primary/8'
+                        : 'text-slate-700 hover:text-primary hover:bg-primary/5'
                     )}
-                  />
+                  >
+                    {link.label}
+                    {active && (
+                      <motion.span
+                        layoutId="nav-indicator"
+                        className="absolute bottom-0 left-1/2 -translate-x-1/2 h-[2px] w-5 rounded-full bg-primary"
+                        transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                      />
+                    )}
+                  </Link>
+                );
+              })}
+            </div>
+
+            {/* ── DESKTOP CTAs ── */}
+            <div className="hidden md:flex items-center gap-2.5">
+              <Button
+                variant="outline"
+                size="sm"
+                className="border-primary/40 text-primary hover:bg-primary/5 gap-1.5"
+                asChild
+              >
+                <Link href="tel:+91XXXXXXXXXX" className="inline-flex items-center">
+                  <Phone className="w-3.5 h-3.5" />
+                  Call Now
                 </Link>
-              );
-            })}
-          </div>
+              </Button>
+              <Button
+                size="sm"
+                className="bg-primary hover:bg-primary/90 shadow-sm shadow-primary/20"
+                asChild
+              >
+                <Link href="/contact">Book Appointment</Link>
+              </Button>
+            </div>
 
-          {/* Desktop Right CTAs */}
-          <div className="hidden md:flex items-center gap-3">
-            <Button
-              variant="outline"
-              className="border-primary/40 text-primary hover:bg-primary/5"
-              asChild
-            >
-              <Link href="/contact" className="inline-flex items-center">
-                <Phone className="w-4 h-4 mr-2" />
-                Call Now
-              </Link>
-            </Button>
-            <Button className="bg-primary hover:bg-primary/90" asChild>
-              <Link href="/contact">Book Appointment</Link>
-            </Button>
-          </div>
+            {/* ── MOBILE: icons + hamburger ── */}
+            <div className="flex items-center gap-2 lg:hidden">
+              <Button
+                variant="outline"
+                size="sm"
+                className="border-primary/40 text-primary h-9 w-9 p-0"
+                aria-label="Call Now"
+                asChild
+              >
+                <Link href="tel:+91XXXXXXXXXX">
+                  <Phone className="w-4 h-4" />
+                </Link>
+              </Button>
+              <Button
+                size="sm"
+                className="bg-primary hover:bg-primary/90 h-9 px-3 text-xs font-semibold hidden sm:inline-flex"
+                asChild
+              >
+                <Link href="/contact">Book</Link>
+              </Button>
+              <button
+                onClick={() => setIsOpen(true)}
+                className="h-9 w-9 flex items-center justify-center rounded-lg border border-slate-200 bg-white hover:bg-slate-50 transition-colors"
+                aria-label="Open menu"
+              >
+                <Menu className="w-5 h-5 text-slate-700" />
+              </button>
+            </div>
 
-          {/* Mobile: CTA + Hamburger */}
-          <div className="flex items-center gap-3 md:hidden">
-            <Button
-              variant="outline"
-              className="border-primary/40 text-primary p-2"
-              aria-label="Call Now"
-              asChild
-            >
-              <Link href="/contact" aria-label="Call Now" className="inline-flex">
-                <Phone className="w-4 h-4" />
-              </Link>
-            </Button>
-            <Button className="bg-primary hover:bg-primary/90 px-3" asChild>
-              <Link href="/contact">Book</Link>
-            </Button>
-            <button
-              onClick={() => setIsOpen(true)}
-              className="p-2 rounded-md hover:bg-slate-100 transition-colors"
-              aria-label="Open menu"
-            >
-              <Menu className="w-6 h-6 text-slate-900" />
-            </button>
           </div>
         </div>
-      </div>
+      </nav>
 
-      {/* Mobile drawer */}
+      {/* ── MOBILE DRAWER ── */}
       <AnimatePresence>
         {isOpen && (
           <>
+            {/* Backdrop */}
             <motion.div
-              className="fixed inset-0 bg-slate-900/25 backdrop-blur-sm z-50"
+              className="fixed inset-0 bg-slate-900/30 backdrop-blur-sm z-[60]"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
               onClick={() => setIsOpen(false)}
             />
+
+            {/* Drawer panel */}
             <motion.aside
-              className="fixed top-0 right-0 h-full w-[320px] bg-white/80 backdrop-blur-md border-l border-slate-200/60 z-50 shadow-2xl"
-              initial={{ x: 24, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              exit={{ x: 24, opacity: 0 }}
-              transition={{ type: 'spring', stiffness: 260, damping: 22 }}
+              className="fixed top-0 right-0 h-full w-[300px] sm:w-[340px] bg-white z-[70] shadow-2xl flex flex-col"
+              initial={{ x: '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '100%' }}
+              transition={{ type: 'spring', stiffness: 300, damping: 30 }}
             >
-              <div className="flex items-center justify-between px-4 py-4">
+              {/* Drawer header */}
+              <div className="flex items-center justify-between px-5 py-4 border-b border-slate-100">
                 <div className="flex items-center gap-3">
-                  <img
-                    src="/images/clinic-logo.png"
-                    alt="Narula Clinic Logo"
-                    className="h-9 w-9"
-                  />
-                  <span className="font-semibold text-slate-900">Narula Clinic</span>
+                  <div className="relative h-10 w-10 rounded-xl overflow-hidden border border-slate-200/60 bg-white shrink-0">
+                    <Image
+                      src="/images/clinic-logo.png"
+                      alt="Narula Clinic Logo"
+                      fill
+                      sizes="40px"
+                      className="object-contain p-0.5"
+                    />
+                  </div>
+                  <div>
+                    <div className="font-bold text-slate-900 text-sm leading-tight">Narula Clinic</div>
+                    <div className="text-[11px] text-primary font-medium leading-tight">Multispeciality · Delhi</div>
+                  </div>
                 </div>
                 <button
                   onClick={() => setIsOpen(false)}
-                  className="p-2 rounded-md hover:bg-slate-100 transition-colors"
+                  className="h-8 w-8 flex items-center justify-center rounded-lg border border-slate-200 hover:bg-slate-50 transition-colors"
                   aria-label="Close menu"
                 >
-                  <X className="w-6 h-6 text-slate-900" />
+                  <X className="w-4 h-4 text-slate-700" />
                 </button>
               </div>
 
-              <div className="px-4 pb-6">
-                <nav className="space-y-2">
-                  {navLinks.map((link) => (
-                    <Link
-                      key={link.href}
-                      href={link.href}
-                      onClick={() => setIsOpen(false)}
-                      className={cn(
-                        'block rounded-xl px-3 py-2 text-sm font-medium',
-                        isLinkActive(pathname, link.href)
-                          ? 'bg-primary/10 text-primary'
-                          : 'text-slate-700 hover:bg-slate-100'
-                      )}
-                    >
-                      {link.label}
-                    </Link>
-                  ))}
-                </nav>
+              {/* Nav links */}
+              <nav className="flex-1 overflow-y-auto px-4 py-4">
+                <p className="text-[10px] font-semibold text-slate-400 uppercase tracking-widest px-3 mb-2">
+                  Navigation
+                </p>
+                <ul className="space-y-1">
+                  {navLinks.map((link, idx) => {
+                    const active = isLinkActive(pathname, link.href);
+                    return (
+                      <motion.li
+                        key={link.href}
+                        initial={{ opacity: 0, x: 16 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: idx * 0.05 }}
+                      >
+                        <Link
+                          href={link.href}
+                          onClick={() => setIsOpen(false)}
+                          className={cn(
+                            'flex items-center justify-between rounded-xl px-3 py-2.5 text-sm font-medium transition-all',
+                            active
+                              ? 'bg-primary/10 text-primary'
+                              : 'text-slate-700 hover:bg-slate-100 hover:text-slate-900'
+                          )}
+                        >
+                          <span>{link.label}</span>
+                          <ChevronRight className={cn(
+                            'w-4 h-4 transition-colors',
+                            active ? 'text-primary' : 'text-slate-400'
+                          )} />
+                        </Link>
+                      </motion.li>
+                    );
+                  })}
+                </ul>
 
-                <div className="mt-6 flex flex-col gap-3">
-                  <Button
-                    variant="outline"
-                    className="border-primary/40 text-primary"
-                    asChild
-                  >
-                    <Link href="/contact" className="inline-flex items-center">
-                      <Phone className="w-4 h-4 mr-2" />
-                      Call Now
-                    </Link>
-                  </Button>
-                  <Button className="bg-primary hover:bg-primary/90" asChild>
-                    <Link href="/contact" onClick={() => setIsOpen(false)}>
-                      Book Appointment
-                    </Link>
-                  </Button>
+                {/* Info strip */}
+                <div className="mt-5 space-y-2.5 px-1">
+                  <p className="text-[10px] font-semibold text-slate-400 uppercase tracking-widest px-2 mb-2">
+                    Clinic Info
+                  </p>
+                  <div className="flex items-center gap-2.5 rounded-xl bg-slate-50 border border-slate-100 px-3 py-2.5">
+                    <div className="h-7 w-7 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0">
+                      <MapPin className="w-3.5 h-3.5" />
+                    </div>
+                    <div>
+                      <div className="text-xs font-semibold text-slate-800">Najafgarh, New Delhi</div>
+                      <div className="text-[10px] text-slate-500">Narula Multispeciality Clinic</div>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-2.5 rounded-xl bg-slate-50 border border-slate-100 px-3 py-2.5">
+                    <div className="h-7 w-7 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0">
+                      <Clock className="w-3.5 h-3.5" />
+                    </div>
+                    <div>
+                      <div className="text-xs font-semibold text-slate-800">Mon–Sat · 9 AM – 7 PM</div>
+                      <div className="text-[10px] text-slate-500">Sunday: Emergency Only</div>
+                    </div>
+                  </div>
                 </div>
+              </nav>
+
+              {/* Drawer footer CTAs */}
+              <div className="px-4 py-4 border-t border-slate-100 space-y-2.5 bg-slate-50/60">
+                <Button
+                  className="w-full bg-primary hover:bg-primary/90 shadow-sm shadow-primary/15 h-10"
+                  asChild
+                >
+                  <Link href="/contact" onClick={() => setIsOpen(false)} className="inline-flex items-center gap-2">
+                    Book Appointment
+                    <ChevronRight className="w-4 h-4" />
+                  </Link>
+                </Button>
+                <Button
+                  variant="outline"
+                  className="w-full border-primary/40 text-primary hover:bg-primary/5 h-10"
+                  asChild
+                >
+                  <Link href="tel:+91XXXXXXXXXX" className="inline-flex items-center gap-2">
+                    <Phone className="w-4 h-4" />
+                    Call Now
+                  </Link>
+                </Button>
               </div>
             </motion.aside>
           </>
         )}
       </AnimatePresence>
-    </nav>
+    </>
   );
 }

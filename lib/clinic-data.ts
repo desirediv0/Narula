@@ -64,7 +64,7 @@ export const doctors = [
     id: 4,
     name: 'Dr Milind Shinde',
     speciality: 'Consultant Paediatrician & Neonatologist',
-    image: '/images/dr-sanjay.jpg',
+    image: "/images/dr-sanjay.jpg",
     bio: 'Paediatrics and neonatology specialist dedicated to the healthiest start—supporting growth, immunizations, and long-term wellness through adolescence.',
     qualifications: ['MD Paediatrics (AIIMS)', 'DNB Paediatrics'],
     experience: '8+ years',

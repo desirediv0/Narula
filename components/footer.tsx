@@ -1,144 +1,252 @@
 import Link from 'next/link'
-import { Mail, Phone, MapPin, Facebook, Twitter, Linkedin } from 'lucide-react'
+import Image from 'next/image'
+import {
+  Mail, Phone, MapPin, Clock,
+  Facebook, Twitter, Linkedin, Instagram,
+  HeartPulse, Bone, Baby, ShieldCheck, Sparkles, Pill,
+  ArrowRight, MessageCircle,
+} from 'lucide-react'
+
+const PHONE_TEL = 'tel:+91XXXXXXXXXX'
+const WHATSAPP_TEL = 'https://wa.me/91XXXXXXXXXX'
+const EMAIL = 'info@narulaClinic.com'
+
+const quickLinks = [
+  { label: 'Home', href: '/' },
+  { label: 'About Us', href: '/about' },
+  { label: 'Doctors', href: '/doctors' },
+  { label: 'Services', href: '/services' },
+  { label: 'Contact', href: '/contact' },
+]
+
+const services = [
+  { label: 'Obstetrics & Gynaecology', href: '/services#obgyn', icon: HeartPulse },
+  { label: 'Infertility (IVF & IUI)', href: '/services#infertility', icon: Sparkles },
+  { label: 'Cosmetic Gynaecology', href: '/services#cosmetic', icon: Pill },
+  { label: 'General & Lap. Surgery', href: '/services#surgery', icon: ShieldCheck },
+  { label: 'Bone & Joint Care', href: '/services#bone-joint', icon: Bone },
+  { label: 'Paediatrics & Neonatology', href: '/services#paediatrics', icon: Baby },
+]
+
+const socials = [
+  { icon: Facebook, href: '#', label: 'Facebook' },
+  { icon: Instagram, href: '#', label: 'Instagram' },
+  { icon: Twitter, href: '#', label: 'Twitter' },
+  { icon: Linkedin, href: '#', label: 'LinkedIn' },
+]
 
 export function Footer() {
-  const currentYear = 2026
+  const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="bg-[#0f172a] text-white relative overflow-hidden">
-      <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(60%_50%_at_20%_0%,rgba(14,165,233,0.25)_0%,transparent_60%),radial-gradient(45%_40%_at_90%_30%,rgba(20,184,166,0.22)_0%,transparent_65%),radial-gradient(45%_40%_at_50%_110%,rgba(34,197,94,0.18)_0%,transparent_60%)]" />
+    <footer className="relative bg-[#0b1628] text-white overflow-hidden">
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
-          <div>
-            <div className="flex items-center gap-3 mb-4">
-              <img
-                src="/images/clinic-logo.png"
-                alt="Narula Clinic"
-                className="h-10 w-10"
-              />
-              <h3 className="font-bold text-lg">Narula Multispeciality Clinic</h3>
+      {/* Ambient glow */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-0 left-0 w-[600px] h-[400px] bg-sky-500/10 rounded-full blur-[120px] -translate-x-1/3 -translate-y-1/3" />
+        <div className="absolute top-0 right-0 w-[500px] h-[400px] bg-teal-500/10 rounded-full blur-[100px] translate-x-1/3 -translate-y-1/3" />
+        <div className="absolute bottom-0 left-1/2 w-[700px] h-[300px] bg-emerald-500/8 rounded-full blur-[120px] -translate-x-1/2 translate-y-1/3" />
+      </div>
+
+      {/* Top CTA strip */}
+      <div className="relative border-b border-white/8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div className="flex items-center gap-3">
+              <div className="h-9 w-9 rounded-xl bg-primary/20 text-sky-400 flex items-center justify-center border border-primary/20 shrink-0">
+                <HeartPulse className="w-4.5 h-4.5" />
+              </div>
+              <div>
+                <p className="text-sm font-semibold text-white">Need medical advice?</p>
+                <p className="text-xs text-white/50">Same-day appointments available for urgent cases.</p>
+              </div>
             </div>
-            <p className="text-sm text-white/70 leading-relaxed">
-              Compassionate care under one roof, backed by advanced medical expertise for
-              every stage of life.
-            </p>
-          </div>
-
-          <div>
-            <h4 className="font-semibold text-sm tracking-wide mb-4 text-white/90">
-              Quick Links
-            </h4>
-            <ul className="space-y-2 text-sm text-white/70">
-              <li>
-                <Link href="/" className="hover:text-white transition-colors">
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link href="/about" className="hover:text-white transition-colors">
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link href="/doctors" className="hover:text-white transition-colors">
-                  Doctors
-                </Link>
-              </li>
-              <li>
-                <Link href="/services" className="hover:text-white transition-colors">
-                  Services
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact" className="hover:text-white transition-colors">
-                  Contact
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="font-semibold text-sm tracking-wide mb-4 text-white/90">
-              Services
-            </h4>
-            <ul className="space-y-2 text-sm text-white/70">
-              <li>
-                <Link href="/services" className="hover:text-white transition-colors">
-                  Gynecology
-                </Link>
-              </li>
-              <li>
-                <Link href="/services" className="hover:text-white transition-colors">
-                  Orthopedics
-                </Link>
-              </li>
-              <li>
-                <Link href="/services" className="hover:text-white transition-colors">
-                  Pediatrics
-                </Link>
-              </li>
-              <li>
-                <Link href="/services" className="hover:text-white transition-colors">
-                  Surgery
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="font-semibold text-sm tracking-wide mb-4 text-white/90">
-              Contact
-            </h4>
-            <div className="space-y-3 text-sm text-white/70">
-              <div className="flex items-start gap-2">
-                <Phone className="w-4 h-4 mt-1 flex-shrink-0" />
-                <span>+91-XXXX-XXXX-XX</span>
-              </div>
-              <div className="flex items-start gap-2">
-                <Mail className="w-4 h-4 mt-1 flex-shrink-0" />
-                <span>info@narulaClinic.com</span>
-              </div>
-              <div className="flex items-start gap-2">
-                <MapPin className="w-4 h-4 mt-1 flex-shrink-0" />
-                <span>Your Clinic Address</span>
-              </div>
-
-              <div className="pt-2 flex items-center gap-4">
-                <Link
-                  href="#"
-                  aria-label="Facebook"
-                  className="text-white/70 hover:text-white transition-colors"
-                >
-                  <Facebook className="w-5 h-5" />
-                </Link>
-                <Link
-                  href="#"
-                  aria-label="Twitter"
-                  className="text-white/70 hover:text-white transition-colors"
-                >
-                  <Twitter className="w-5 h-5" />
-                </Link>
-                <Link
-                  href="#"
-                  aria-label="LinkedIn"
-                  className="text-white/70 hover:text-white transition-colors"
-                >
-                  <Linkedin className="w-5 h-5" />
-                </Link>
-              </div>
+            <div className="flex gap-2.5 shrink-0">
+              <Link
+                href={PHONE_TEL}
+                className="inline-flex items-center gap-2 rounded-xl border border-white/15 bg-white/8 hover:bg-white/15 px-4 py-2 text-xs font-semibold text-white transition-colors"
+              >
+                <Phone className="w-3.5 h-3.5" /> Call Now
+              </Link>
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 rounded-xl bg-primary hover:bg-primary/90 px-4 py-2 text-xs font-semibold text-white transition-colors shadow-sm shadow-primary/30"
+              >
+                Book Appointment <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
             </div>
           </div>
         </div>
+      </div>
 
-        <div className="mt-12 pt-6 border-t border-white/10 flex flex-col sm:flex-row gap-3 sm:items-center sm:justify-between">
-          <p className="text-sm text-white/60">
+      {/* Main footer grid */}
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
+
+          {/* ── COL 1: Brand ── */}
+          <div className="sm:col-span-2 lg:col-span-1">
+            {/* Logo */}
+            <Link href="/" className="inline-flex items-center gap-3 group mb-5">
+              <div className="relative h-14 w-14 rounded-2xl overflow-hidden border border-white/15 bg-white/10 shrink-0 transition-transform group-hover:scale-105 shadow-lg">
+                <Image
+                  src="/images/clinic-logo.png"
+                  alt="Narula Clinic Logo"
+                  fill
+                  sizes="56px"
+                  className="object-contain p-1"
+                />
+              </div>
+              <div>
+                <div className="font-bold text-white text-base leading-tight">
+                  Narula Multispeciality
+                </div>
+                <div className="text-xs text-sky-400 font-medium leading-tight mt-0.5">
+                  Clinic · Najafgarh, Delhi
+                </div>
+              </div>
+            </Link>
+
+            <p className="text-sm text-white/55 leading-relaxed mb-5">
+              Compassionate, advanced healthcare under one roof — trusted by thousands
+              of families across Najafgarh &amp; Delhi NCR for over 35 years.
+            </p>
+
+            {/* Socials */}
+            <div className="flex items-center gap-2">
+              {socials.map(({ icon: Icon, href, label }) => (
+                <Link
+                  key={label}
+                  href={href}
+                  aria-label={label}
+                  className="h-9 w-9 rounded-xl border border-white/12 bg-white/6 hover:bg-white/15 hover:border-white/25 flex items-center justify-center text-white/60 hover:text-white transition-all"
+                >
+                  <Icon className="w-4 h-4" />
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* ── COL 2: Quick Links ── */}
+          <div>
+            <h4 className="text-xs font-bold uppercase tracking-widest text-white/40 mb-4">
+              Quick Links
+            </h4>
+            <ul className="space-y-2.5">
+              {quickLinks.map(({ label, href }) => (
+                <li key={href}>
+                  <Link
+                    href={href}
+                    className="group inline-flex items-center gap-2 text-sm text-white/60 hover:text-white transition-colors"
+                  >
+                    <span className="h-1 w-1 rounded-full bg-primary/60 group-hover:bg-primary group-hover:scale-125 transition-all shrink-0" />
+                    {label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* ── COL 3: Services ── */}
+          <div>
+            <h4 className="text-xs font-bold uppercase tracking-widest text-white/40 mb-4">
+              Our Services
+            </h4>
+            <ul className="space-y-2.5">
+              {services.map(({ label, href, icon: Icon }) => (
+                <li key={href}>
+                  <Link
+                    href={href}
+                    className="group inline-flex items-center gap-2 text-sm text-white/60 hover:text-white transition-colors"
+                  >
+                    <Icon className="w-3.5 h-3.5 text-sky-500/60 group-hover:text-sky-400 transition-colors shrink-0" />
+                    {label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* ── COL 4: Contact ── */}
+          <div>
+            <h4 className="text-xs font-bold uppercase tracking-widest text-white/40 mb-4">
+              Contact Us
+            </h4>
+            <ul className="space-y-3.5">
+              {[
+                {
+                  icon: Phone,
+                  label: '+91-XXXX-XXXX-XX',
+                  href: PHONE_TEL,
+                  sub: 'Mon–Sat · 9 AM – 7 PM',
+                },
+                {
+                  icon: MessageCircle,
+                  label: 'WhatsApp Us',
+                  href: WHATSAPP_TEL,
+                  sub: 'Quick queries answered fast',
+                },
+                {
+                  icon: Mail,
+                  label: EMAIL,
+                  href: `mailto:${EMAIL}`,
+                  sub: 'Reply within 24 hours',
+                },
+                {
+                  icon: MapPin,
+                  label: 'Najafgarh, New Delhi',
+                  href: 'https://maps.google.com',
+                  sub: 'View on Google Maps',
+                },
+              ].map(({ icon: Icon, label, href, sub }) => (
+                <li key={label}>
+                  <Link
+                    href={href}
+                    target={href.startsWith('http') ? '_blank' : undefined}
+                    rel={href.startsWith('http') ? 'noreferrer' : undefined}
+                    className="group flex items-start gap-3"
+                  >
+                    <div className="h-7 w-7 rounded-lg bg-white/8 border border-white/12 flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-primary/20 group-hover:border-primary/30 transition-colors">
+                      <Icon className="w-3.5 h-3.5 text-white/50 group-hover:text-sky-400 transition-colors" />
+                    </div>
+                    <div>
+                      <div className="text-sm text-white/70 group-hover:text-white transition-colors leading-tight">{label}</div>
+                      <div className="text-[10px] text-white/35 mt-0.5 leading-tight">{sub}</div>
+                    </div>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+
+            {/* Hours badge */}
+            <div className="mt-5 inline-flex items-center gap-2 rounded-xl border border-white/12 bg-white/6 px-3 py-2">
+              <Clock className="w-3.5 h-3.5 text-sky-400 shrink-0" />
+              <div>
+                <div className="text-[11px] font-semibold text-white/80">Mon–Sat · 9 AM – 7 PM</div>
+                <div className="text-[10px] text-white/40">Sunday: Emergency Only</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        {/* Bottom bar */}
+        <div className="mt-12 pt-6 border-t border-white/8 flex flex-col sm:flex-row gap-2 sm:items-center sm:justify-between">
+          <p className="text-xs text-white/35">
             &copy; {currentYear} Narula Multispeciality Clinic. All rights reserved.
           </p>
-          <p className="text-sm text-white/60">Designed by</p>
+          <p className="text-xs text-white/35">
+            Designed &amp; built by{' '}
+            <a
+              href="https://desirediv.com/"
+              target="_blank"
+              rel="noreferrer"
+              className="text-sky-500/70 hover:text-sky-400 transition-colors"
+            >
+              Desirediv
+            </a>
+          </p>
         </div>
       </div>
     </footer>
   )
 }
-
