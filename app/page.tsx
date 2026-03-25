@@ -589,7 +589,7 @@ export default function Home() {
                         alt={doc.name}
                         fill
                         sizes="(max-width: 640px) 100vw, 25vw"
-                        className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                        className="object-contain object-top transition-transform duration-500 group-hover:scale-105"
                       />
                     ) : (
                       <div className="absolute inset-0 flex items-center justify-center text-slate-300">
