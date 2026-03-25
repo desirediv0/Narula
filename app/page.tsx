@@ -138,6 +138,9 @@ const testimonials = [
   },
 ];
 
+const HERO_VIDEO_URL =
+  'https://desirediv-storage.blr1.cdn.digitaloceanspaces.com/belvo/6437651_People_Animation_3840x2160.mp4'
+
 /* ─── PAGE ──────────────────────────────────────────────── */
 
 export default function Home() {
@@ -275,13 +278,13 @@ export default function Home() {
 
                 {/* Hero image */}
                 <div className="relative h-[340px] sm:h-[380px] rounded-2xl overflow-hidden bg-gradient-to-br from-sky-100 to-teal-50">
-                  <Image
-                    src={doctors[0]?.image ?? '/images/clinic-logo.png'}
-                    alt="Narula Multispeciality Clinic"
-                    fill
-                    sizes="(max-width: 640px) 100vw, 50vw"
-                    className="object-cover object-top"
-                    priority
+                  <video
+                    src={HERO_VIDEO_URL}
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    className="absolute inset-0 w-full h-full object-cover object-top"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900/20 via-transparent to-transparent" />
                 </div>
