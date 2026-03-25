@@ -153,6 +153,7 @@ export function ServicesContent() {
         id: 'obgyn',
         eyebrow: "Women's Care",
         title: 'Obstetrics & Gynaecology',
+        img: '/obstetrics-gynaecology.jpg',
         description:
           'Dr Vandana Narula brings over 35 years of experience in obstetrics and gynaecology, managing everything from routine antenatal care to complex high-risk deliveries. Our women\'s health clinic is designed to be safe, supportive, and fully equipped.',
         bullets: [
@@ -170,6 +171,7 @@ export function ServicesContent() {
         id: 'infertility',
         eyebrow: 'Fertility Services',
         title: 'Infertility (IVF & IUI)',
+        img: '/Infertility.jpg',
         description:
           'Fertility challenges affect 1 in 6 couples. Our fertility clinic offers personalised, evidence-based treatment plans with consistent monitoring and emotional support — because the journey matters as much as the outcome.',
         bullets: [
@@ -187,6 +189,7 @@ export function ServicesContent() {
         id: 'cosmetic',
         eyebrow: 'Aesthetic & Functional',
         title: 'Cosmetic Gynaecology',
+        img: '/cosmetic-gynaecology.jpg',
         description:
           'Performed with surgical precision and the utmost confidentiality, our cosmetic gynaecology procedures address both aesthetic concerns and functional discomfort — helping women feel comfortable and confident in their own bodies.',
         bullets: [
@@ -202,6 +205,7 @@ export function ServicesContent() {
         id: 'surgery',
         eyebrow: 'Surgical Excellence',
         title: 'General & Laparoscopic Surgery',
+        img: '/general-laparoscopic-surgery.jpg',
         description:
           'Led by Dr Sanjay Narula — a highly experienced general and medico-legal surgeon — our surgical department offers minimally invasive procedures that mean less pain, faster healing, and shorter stays.',
         bullets: [
@@ -218,6 +222,7 @@ export function ServicesContent() {
         id: 'bone-joint',
         eyebrow: 'Mobility & Rehabilitation',
         title: 'Bone & Joint Care',
+        img: '/bone-joint-care.jpg',
         description:
           'Dr Sidhant Narula specialises in orthopaedic care for fractures, joint conditions, and sports injuries. The goal is always to restore your mobility, reduce pain, and help you return to everyday life as quickly and safely as possible.',
         bullets: [
@@ -234,6 +239,7 @@ export function ServicesContent() {
         id: 'paediatrics',
         eyebrow: 'Child Wellness',
         title: 'Paediatrics & Neonatology',
+        img: '/paediatrics-neonatology.jpg',
         description:
           'Dr Milind Shinde is a consultant paediatrician and neonatologist with expertise in newborn intensive care, childhood development, and adolescent wellness. We support children from their very first breath.',
         bullets: [
@@ -416,11 +422,11 @@ export function ServicesContent() {
                       {/* Image — 2/5 width on desktop */}
                       <div className="md:col-span-2 relative h-48 md:h-auto bg-slate-100 md:[direction:ltr]">
                         <Image
-                          src="/images/clinic-logo.png"
+                          src={block.img}
                           alt={block.title}
                           fill
                           sizes="(max-width: 768px) 100vw, 40vw"
-                          className="object-cover"
+                          className="object-cover object-top rounded"
                         />
                         <div className="absolute inset-0 bg-gradient-to-tr from-sky-500/25 via-teal-500/10 to-emerald-500/20" />
                         {/* Badge pinned bottom */}
