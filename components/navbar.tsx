@@ -57,7 +57,7 @@ export function Navbar() {
 
             {/* ── LOGO ── */}
             <Link href="/" className="flex items-center gap-3 group shrink-0">
-              <div className="relative h-16 w-16 rounded overflow-hidden border border-slate-200/60 shadow-sm bg-white shrink-0 transition-transform group-hover:scale-105">
+              <div className="relative h-20 w-20 rounded overflow-hidden shrink-0 transition-transform group-hover:scale-105">
                 <Image
                   src="/images/clinic-logo.png"
                   alt="Narula Clinic Logo"
