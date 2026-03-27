@@ -119,7 +119,7 @@ export function AboutContent() {
             <p className="mt-3 text-base sm:text-lg text-slate-600 font-medium max-w-2xl mx-auto">
               Compassionate Care. Advanced Medicine. For Every Stage of Life.
             </p>
-            <p className="mt-4 max-w-3xl mx-auto text-slate-600 leading-relaxed text-sm sm:text-base">
+            <p className="mt-4 max-w-3xl mx-auto text-slate-600 leading-relaxed text-base sm:text-lg">
               Founded by Dr Sanjay Narula and Dr Vandana Narula, Narula Multispeciality Clinic has been
               a cornerstone of healthcare in Najafgarh, Delhi for over three decades. We combine
               clinical excellence with a warm, patient-first approach — treating the person, not just
@@ -141,7 +141,7 @@ export function AboutContent() {
                 className="rounded-2xl bg-white/80 backdrop-blur border border-slate-200/60 shadow-sm px-4 py-3 text-center"
               >
                 <div className="text-xl font-bold text-primary">{s.number}</div>
-                <div className="text-xs text-slate-500 mt-0.5">{s.label}</div>
+                <div className="text-sm text-slate-500 mt-0.5">{s.label}</div>
               </div>
             ))}
           </motion.div>
@@ -158,17 +158,17 @@ export function AboutContent() {
               viewport={{ once: true, margin: '-60px' }}
               transition={{ duration: 0.55 }}
             >
-              <p className="text-primary font-semibold text-sm uppercase tracking-wide">Our Story</p>
-              <h2 className="mt-1 text-2xl sm:text-3xl font-bold text-slate-900">
+              <p className="text-primary font-semibold text-base uppercase tracking-wide">Our Story</p>
+              <h2 className="mt-1 text-3xl sm:text-4xl font-bold text-slate-900">
                 A Multi-Generational Legacy of Healing
               </h2>
-              <p className="mt-3 text-slate-600 leading-relaxed text-sm sm:text-base">
+              <p className="mt-3 text-slate-600 leading-relaxed text-base sm:text-lg">
                 What began as a single-doctor practice has grown into a thriving multispeciality
                 clinic trusted by families across Najafgarh and the wider Delhi NCR region. Today,
                 our second generation — Dr Sidhant Narula (Orthopaedics) and Dr Milind Shinde
                 (Paediatrics) — continues the legacy with the latest medical advancements.
               </p>
-              <p className="mt-3 text-slate-600 leading-relaxed text-sm sm:text-base">
+              <p className="mt-3 text-slate-600 leading-relaxed text-base sm:text-lg">
                 From welcoming newborns to managing complex surgical cases and lifelong chronic
                 conditions, our team offers seamless, co-ordinated care under one roof — saving
                 patients time, stress, and uncertainty.
@@ -181,7 +181,7 @@ export function AboutContent() {
                   { icon: Phone, text: '+91 98XXX XXXXX' },
                   { icon: CheckCircle2, text: 'NABH-aligned protocols' },
                 ].map(({ icon: Icon, text }) => (
-                  <div key={text} className="flex items-center gap-2 text-sm text-slate-600">
+                  <div key={text} className="flex items-center gap-2 text-base text-slate-600">
                     <Icon className="w-4 h-4 text-primary shrink-0" />
                     <span>{text}</span>
                   </div>
@@ -211,10 +211,10 @@ export function AboutContent() {
                     <ShieldCheck className="w-5 h-5" />
                   </div>
                   <div>
-                    <div className="font-semibold text-slate-900 text-sm">
+                    <div className="font-semibold text-slate-900 text-base">
                       Commitment to patient-first care
                     </div>
-                    <div className="text-xs text-slate-500">Experience guided by ethics & empathy</div>
+                    <div className="text-sm text-slate-500">Experience guided by ethics & empathy</div>
                   </div>
                 </div>
               </Card>
@@ -233,8 +233,8 @@ export function AboutContent() {
             transition={{ duration: 0.5 }}
             className="text-center mb-8"
           >
-            <h2 className="text-2xl sm:text-3xl font-bold text-slate-900">Mission & Vision</h2>
-            <p className="mt-2 text-slate-500 text-sm">Built for trust, designed for better outcomes.</p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900">Mission & Vision</h2>
+            <p className="mt-2 text-slate-500 text-base">Built for trust, designed for better outcomes.</p>
           </motion.div>
 
           <div className="grid md:grid-cols-2 gap-5">
@@ -248,8 +248,8 @@ export function AboutContent() {
                 <div className="h-10 w-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center">
                   <HeartPulse className="w-5 h-5" />
                 </div>
-                <h3 className="mt-3 text-lg font-bold text-slate-900">Our Mission</h3>
-                <p className="mt-2 text-sm text-slate-600 leading-relaxed">
+                <h3 className="mt-3 text-xl font-bold text-slate-900">Our Mission</h3>
+                <p className="mt-2 text-base text-slate-600 leading-relaxed">
                   To deliver accessible, ethical, and technology-driven healthcare that puts every
                   patient at the centre of every decision.
                 </p>
@@ -259,7 +259,7 @@ export function AboutContent() {
                     'Clinically proven, evidence-based treatments',
                     'Affordable care without compromising quality',
                   ].map((item) => (
-                    <li key={item} className="flex items-start gap-2 text-sm text-slate-600">
+                    <li key={item} className="flex items-start gap-2 text-base text-slate-600">
                       <CheckCircle2 className="w-4 h-4 text-primary mt-0.5 shrink-0" />
                       <span>{item}</span>
                     </li>
@@ -278,8 +278,8 @@ export function AboutContent() {
                 <div className="h-10 w-10 rounded-xl bg-teal-500/10 text-teal-600 flex items-center justify-center">
                   <Sparkles className="w-5 h-5" />
                 </div>
-                <h3 className="mt-3 text-lg font-bold text-slate-900">Our Vision</h3>
-                <p className="mt-2 text-sm text-slate-600 leading-relaxed">
+                <h3 className="mt-3 text-xl font-bold text-slate-900">Our Vision</h3>
+                <p className="mt-2 text-base text-slate-600 leading-relaxed">
                   To be the most trusted multispeciality clinic in Delhi NCR — where families return
                   for every stage of life with confidence.
                 </p>
@@ -289,7 +289,7 @@ export function AboutContent() {
                     'Deep community trust built over generations',
                     'Continuous innovation and medical education',
                   ].map((item) => (
-                    <li key={item} className="flex items-start gap-2 text-sm text-slate-600">
+                    <li key={item} className="flex items-start gap-2 text-base text-slate-600">
                       <CheckCircle2 className="w-4 h-4 text-teal-600 mt-0.5 shrink-0" />
                       <span>{item}</span>
                     </li>
@@ -311,8 +311,8 @@ export function AboutContent() {
             transition={{ duration: 0.5 }}
             className="text-center mb-8"
           >
-            <h2 className="text-2xl sm:text-3xl font-bold text-slate-900">Our Specialities</h2>
-            <p className="mt-2 text-slate-500 text-sm max-w-xl mx-auto">
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900">Our Specialities</h2>
+            <p className="mt-2 text-slate-500 text-base max-w-xl mx-auto">
               Expert care across six disciplines — all under one roof.
             </p>
           </motion.div>
@@ -332,8 +332,8 @@ export function AboutContent() {
                     <div className="h-10 w-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center transition-transform group-hover:scale-105">
                       <Icon className="w-5 h-5" />
                     </div>
-                    <h3 className="mt-3 text-sm font-bold text-slate-900">{item.title}</h3>
-                    <p className="mt-1.5 text-xs text-slate-500 leading-relaxed">{item.description}</p>
+                    <h3 className="mt-3 text-lg font-bold text-slate-900">{item.title}</h3>
+                    <p className="mt-1.5 text-base text-slate-500 leading-relaxed">{item.description}</p>
                   </Card>
                 </motion.div>
               )
@@ -353,8 +353,8 @@ export function AboutContent() {
               transition={{ duration: 0.55 }}
               className="text-center lg:text-left"
             >
-              <p className="text-primary font-semibold text-sm">Led by experienced specialists</p>
-              <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 mt-1">
+              <p className="text-primary font-semibold text-base">Led by experienced specialists</p>
+              <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mt-1">
                 Expertise you can trust
               </h2>
             </motion.div>
@@ -381,7 +381,7 @@ export function AboutContent() {
                         </div>
                         <div className="text-center sm:text-left">
                           <div className="text-xl font-bold text-slate-900">{b.number}</div>
-                          <div className="text-xs text-slate-500 leading-snug">{b.label}</div>
+                          <div className="text-sm text-slate-500 leading-snug">{b.label}</div>
                         </div>
                       </div>
                     </Card>
@@ -404,8 +404,8 @@ export function AboutContent() {
             className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 mb-8"
           >
             <div>
-              <h2 className="text-2xl sm:text-3xl font-bold text-slate-900">Meet Our Doctors</h2>
-              <p className="mt-1 text-slate-500 text-sm">
+              <h2 className="text-3xl sm:text-4xl font-bold text-slate-900">Meet Our Doctors</h2>
+              <p className="mt-1 text-slate-500 text-base">
                 Specialists who combine precision with compassion.
               </p>
             </div>
@@ -444,9 +444,9 @@ export function AboutContent() {
                     )}
                   </div>
                   <div className="p-4 flex flex-col flex-1">
-                    <div className="text-primary font-semibold text-xs">{doc.speciality}</div>
-                    <h3 className="mt-1 text-sm font-bold text-slate-900 leading-snug">{doc.name}</h3>
-                    <p className="mt-2 text-xs text-slate-500 leading-relaxed line-clamp-3 flex-1">{doc.bio}</p>
+                    <div className="text-primary font-semibold text-sm">{doc.speciality}</div>
+                    <h3 className="mt-1 text-base font-bold text-slate-900 leading-snug">{doc.name}</h3>
+                    <p className="mt-2 text-sm text-slate-500 leading-relaxed line-clamp-3 flex-1">{doc.bio}</p>
                     <div className="mt-3 flex items-center justify-between">
                       <Badge className="bg-primary/10 text-primary border-primary/20 text-[10px]">
                         {doc.experience}
@@ -455,7 +455,7 @@ export function AboutContent() {
                     <Button
                       variant="outline"
                       size="sm"
-                      className="mt-3 w-full border-primary/40 text-primary hover:bg-primary/5 text-xs"
+                      className="mt-3 w-full border-primary/40 text-primary hover:bg-primary/5 text-sm"
                       asChild
                     >
                       <Link href={`/doctors#${doc.id}`}>View Full Profile</Link>
@@ -478,8 +478,8 @@ export function AboutContent() {
             transition={{ duration: 0.5 }}
             className="text-center mb-8"
           >
-            <h2 className="text-2xl sm:text-3xl font-bold text-slate-900">Why Choose Us</h2>
-            <p className="mt-2 text-slate-500 text-sm">
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900">Why Choose Us</h2>
+            <p className="mt-2 text-slate-500 text-base">
               Four reasons thousands of families trust Narula Clinic.
             </p>
           </motion.div>
@@ -501,8 +501,8 @@ export function AboutContent() {
                         <Icon className="w-5 h-5" />
                       </div>
                       <div>
-                        <h3 className="font-bold text-slate-900 text-sm">{item.title}</h3>
-                        <p className="mt-1 text-xs text-slate-500 leading-relaxed">{item.description}</p>
+                        <h3 className="font-bold text-slate-900 text-lg">{item.title}</h3>
+                        <p className="mt-1 text-sm text-slate-500 leading-relaxed">{item.description}</p>
                       </div>
                     </div>
                   </Card>
@@ -523,10 +523,10 @@ export function AboutContent() {
             transition={{ duration: 0.55 }}
             className="rounded-3xl overflow-hidden border border-white/30 shadow-lg bg-gradient-to-r from-sky-500/20 via-teal-500/20 to-emerald-500/20 p-8 sm:p-10 text-center"
           >
-            <h2 className="text-2xl sm:text-3xl font-bold text-slate-900">
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900">
               Your Health, Our Priority
             </h2>
-            <p className="mt-2 text-slate-600 text-sm max-w-md mx-auto">
+            <p className="mt-2 text-slate-600 text-base max-w-md mx-auto">
               Book a consultation today and experience the difference of truly personalised care.
             </p>
             <div className="mt-5 flex flex-col sm:flex-row gap-3 justify-center">

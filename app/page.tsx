@@ -425,15 +425,15 @@ export default function Home() {
                         <div className={`h-10 w-10 rounded-xl flex items-center justify-center border transition-transform group-hover:scale-110 shrink-0 ${service.iconBg}`}>
                           <Icon className="w-5 h-5" />
                         </div>
-                        <span className="text-xs font-semibold text-primary uppercase tracking-wide">{service.eyebrow}</span>
+                        <span className="text-sm font-semibold text-primary uppercase tracking-wide">{service.eyebrow}</span>
                       </div>
 
-                      <h3 className="mt-3 text-base font-bold text-slate-900 leading-snug">{service.title}</h3>
-                      <p className="mt-2 text-sm text-slate-500 leading-relaxed flex-1">{service.description}</p>
+                      <h3 className="mt-3 text-lg sm:text-xl font-bold text-slate-900 leading-snug">{service.title}</h3>
+                      <p className="mt-2 text-base text-slate-600 leading-relaxed flex-1">{service.description}</p>
 
                       <Link
                         href={service.href}
-                        className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:gap-2.5 transition-all duration-200"
+                        className="mt-4 inline-flex items-center gap-1.5 text-base font-semibold text-primary hover:gap-2.5 transition-all duration-200"
                       >
                         Learn More <ChevronRight className="w-4 h-4" />
                       </Link>
@@ -497,7 +497,7 @@ export default function Home() {
                   'Affordable care without compromising quality',
                   'Same-day appointments available for urgent cases',
                 ].map((item) => (
-                  <li key={item} className="flex items-start gap-2.5 text-sm text-slate-600">
+                  <li key={item} className="flex items-start gap-2.5 text-base text-slate-600">
                     <CheckCircle2 className="w-4 h-4 text-primary mt-0.5 shrink-0" />
                     <span>{item}</span>
                   </li>
@@ -604,15 +604,15 @@ export default function Home() {
                   </div>
                   <div className="p-4 flex flex-col flex-1">
                     <div className="text-primary font-semibold text-xs uppercase tracking-wide">{doc.speciality}</div>
-                    <h3 className="mt-1 text-sm font-bold text-slate-900 leading-snug">{doc.name}</h3>
-                    <p className="mt-2 text-xs text-slate-500 leading-relaxed line-clamp-2 flex-1">{doc.bio}</p>
+                    <h3 className="mt-1 text-base font-bold text-slate-900 leading-snug">{doc.name}</h3>
+                    <p className="mt-2 text-sm text-slate-500 leading-relaxed line-clamp-2 flex-1">{doc.bio}</p>
                     <div className="mt-3 flex items-center justify-between">
                       <Badge className="bg-primary/10 text-primary border-primary/20 text-[10px]">{doc.experience}</Badge>
                     </div>
                     <Button
                       variant="outline"
                       size="sm"
-                      className="mt-3 w-full border-primary/40 text-primary hover:bg-primary/5 text-xs"
+                      className="mt-3 w-full border-primary/40 text-primary hover:bg-primary/5 text-sm"
                       asChild
                     >
                       <Link href={`/doctors#${doc.id}`} className="inline-flex items-center gap-1">
@@ -643,7 +643,7 @@ export default function Home() {
             <h2 className="text-3xl sm:text-4xl font-bold text-slate-900">
               Why Thousands of Families <span className="text-primary">Trust Us</span>
             </h2>
-            <p className="mt-3 text-slate-500 text-sm max-w-xl mx-auto">
+            <p className="mt-3 text-slate-500 text-base max-w-xl mx-auto">
               Four pillars that define how we care for every patient who walks through our doors.
             </p>
           </motion.div>
@@ -665,8 +665,8 @@ export default function Home() {
                         <Icon className="w-5 h-5" />
                       </div>
                       <div>
-                        <h3 className="font-bold text-slate-900">{item.title}</h3>
-                        <p className="mt-1.5 text-sm text-slate-500 leading-relaxed">{item.description}</p>
+                        <h3 className="font-bold text-slate-900 text-lg leading-snug">{item.title}</h3>
+                        <p className="mt-1.5 text-base text-slate-600 leading-relaxed">{item.description}</p>
                       </div>
                     </div>
                   </Card>
@@ -693,7 +693,7 @@ export default function Home() {
             <h2 className="text-3xl sm:text-4xl font-bold text-slate-900">
               What Our <span className="text-primary">Patients Say</span>
             </h2>
-            <p className="mt-3 text-slate-500 text-sm max-w-xl mx-auto">
+            <p className="mt-3 text-slate-500 text-base max-w-xl mx-auto">
               Real experiences from families who trust Narula Clinic for their healthcare.
             </p>
           </motion.div>
@@ -715,7 +715,7 @@ export default function Home() {
                     ))}
                   </div>
 
-                  <blockquote className="mt-3 text-sm text-slate-600 leading-relaxed flex-1 italic">
+                  <blockquote className="mt-3 text-base text-slate-600 leading-relaxed flex-1 italic">
                     "{t.quote}"
                   </blockquote>
 
@@ -724,8 +724,8 @@ export default function Home() {
                       {t.name.charAt(0)}
                     </div>
                     <div>
-                      <div className="text-sm font-semibold text-slate-900">{t.name}</div>
-                      <div className="text-xs text-slate-500">{t.role}</div>
+                      <div className="text-base font-semibold text-slate-900">{t.name}</div>
+                      <div className="text-sm text-slate-500">{t.role}</div>
                     </div>
                   </div>
                 </Card>

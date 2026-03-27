@@ -192,7 +192,7 @@ export function ContactContent() {
                   'WhatsApp consultation available',
                   'Mon–Sat, 9 AM – 7 PM',
                 ].map((t) => (
-                  <li key={t} className="flex items-center gap-2.5 text-sm text-slate-600">
+                  <li key={t} className="flex items-center gap-2.5 text-base text-slate-600">
                     <CheckCircle2 className="w-4 h-4 text-primary shrink-0" />
                     {t}
                   </li>
@@ -239,14 +239,14 @@ export function ContactContent() {
                       <div className={`h-10 w-10 rounded-xl flex items-center justify-center border mb-3 ${c.color}`}>
                         <Icon className="w-5 h-5" />
                       </div>
-                      <h3 className="font-bold text-slate-900 text-sm">{c.title}</h3>
+                      <h3 className="font-bold text-slate-900 text-base">{c.title}</h3>
                       {c.lines.map((line, i) => (
-                        <p key={i} className="mt-1 text-xs text-slate-500 leading-snug">{line}</p>
+                        <p key={i} className="mt-1 text-sm text-slate-500 leading-snug">{line}</p>
                       ))}
                       {c.action && (
                         <a
                           href={c.action.href}
-                          className="mt-2 inline-flex items-center gap-1 text-xs font-semibold text-primary hover:underline"
+                          className="mt-2 inline-flex items-center gap-1 text-sm font-semibold text-primary hover:underline"
                         >
                           {c.action.label} <ChevronRight className="w-3 h-3" />
                         </a>
@@ -278,7 +278,7 @@ export function ContactContent() {
               <div className="mb-7">
                 <Badge className="bg-primary/10 text-primary border-primary/20 mb-3">Book an Appointment</Badge>
                 <h2 className="text-2xl sm:text-3xl font-bold text-slate-900">Send Us a Message</h2>
-                <p className="mt-2 text-slate-500 text-sm">
+                <p className="mt-2 text-slate-500 text-base">
                   Fill in your details and our team will get back to you to confirm your appointment.
                 </p>
               </div>
@@ -293,8 +293,8 @@ export function ContactContent() {
                   >
                     <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
                     <div>
-                      <p className="text-sm font-semibold text-emerald-800">Message Sent!</p>
-                      <p className="text-xs text-emerald-700 mt-0.5">Our team will contact you shortly to confirm your appointment.</p>
+                      <p className="text-base font-semibold text-emerald-800">Message Sent!</p>
+                      <p className="text-sm text-emerald-700 mt-0.5">Our team will contact you shortly to confirm your appointment.</p>
                     </div>
                   </motion.div>
                 )}
@@ -312,7 +312,7 @@ export function ContactContent() {
                         {...register('fullName')}
                       />
                       {errors.fullName && (
-                        <p className="mt-1.5 text-xs text-red-500">{errors.fullName.message}</p>
+                        <p className="mt-1.5 text-sm text-red-500">{errors.fullName.message}</p>
                       )}
                     </div>
                     <div>
@@ -325,7 +325,7 @@ export function ContactContent() {
                         {...register('phone')}
                       />
                       {errors.phone && (
-                        <p className="mt-1.5 text-xs text-red-500">{errors.phone.message}</p>
+                        <p className="mt-1.5 text-sm text-red-500">{errors.phone.message}</p>
                       )}
                     </div>
                   </div>
@@ -333,7 +333,7 @@ export function ContactContent() {
                   {/* Email */}
                   <div>
                     <label className="block text-sm font-medium text-slate-800 mb-1.5">
-                      Email <span className="text-slate-400 font-normal text-xs">(optional)</span>
+                      Email <span className="text-slate-400 font-normal text-sm">(optional)</span>
                     </label>
                     <Input
                       placeholder="your@email.com"
@@ -341,7 +341,7 @@ export function ContactContent() {
                       {...register('email')}
                     />
                     {errors.email && (
-                      <p className="mt-1.5 text-xs text-red-500">{errors.email.message}</p>
+                      <p className="mt-1.5 text-sm text-red-500">{errors.email.message}</p>
                     )}
                   </div>
 
@@ -352,7 +352,7 @@ export function ContactContent() {
                     </label>
                     <select
                       {...register('service')}
-                      className="w-full rounded-md border border-slate-200 bg-slate-50/70 px-3 py-2 text-sm text-slate-700 focus:bg-white focus:outline-none focus:ring-2 focus:ring-primary/30 transition-colors"
+                      className="w-full rounded-md border border-slate-200 bg-slate-50/70 px-3 py-2 text-base text-slate-700 focus:bg-white focus:outline-none focus:ring-2 focus:ring-primary/30 transition-colors"
                     >
                       <option value="">Select a speciality...</option>
                       {SERVICES.map((s) => (
@@ -373,7 +373,7 @@ export function ContactContent() {
                       {...register('message')}
                     />
                     {errors.message && (
-                      <p className="mt-1.5 text-xs text-red-500">{errors.message.message}</p>
+                      <p className="mt-1.5 text-sm text-red-500">{errors.message.message}</p>
                     )}
                   </div>
 
@@ -398,7 +398,7 @@ export function ContactContent() {
                     )}
                   </Button>
 
-                  <p className="text-center text-xs text-slate-400">
+                  <p className="text-center text-sm text-slate-400">
                     By submitting, you agree to be contacted by our clinic team.
                   </p>
                 </form>
@@ -422,7 +422,7 @@ export function ContactContent() {
                   </div>
                   <div className="hidden sm:flex items-center gap-2 rounded-full bg-white border border-slate-200/70 px-3 py-1.5 shadow-sm shrink-0">
                     <MapPin className="w-3.5 h-3.5 text-primary" />
-                    <span className="text-xs font-semibold text-slate-700">Najafgarh, Delhi</span>
+                    <span className="text-sm font-semibold text-slate-700">Najafgarh, Delhi</span>
                   </div>
                 </div>
 
@@ -440,8 +440,8 @@ export function ContactContent() {
                       <div className="flex items-center gap-2 rounded-xl bg-white/90 backdrop-blur border border-slate-200/80 px-3 py-2 shadow-sm w-fit">
                         <MapPin className="w-4 h-4 text-primary shrink-0" />
                         <div>
-                          <div className="text-xs font-bold text-slate-900">Narula Multispeciality Clinic</div>
-                          <div className="text-[10px] text-slate-500">Najafgarh, New Delhi</div>
+                          <div className="text-sm font-bold text-slate-900">Narula Multispeciality Clinic</div>
+                          <div className="text-xs text-slate-500">Najafgarh, New Delhi</div>
                         </div>
                       </div>
                     </div>
@@ -451,7 +451,7 @@ export function ContactContent() {
 
               {/* Quick service links */}
               <Card className="rounded-2xl border-slate-200/60 bg-white shadow-sm p-5">
-                <h3 className="font-bold text-slate-900 text-sm mb-3">Book by Speciality</h3>
+                <h3 className="font-bold text-slate-900 text-base mb-3">Book by Speciality</h3>
                 <div className="space-y-2">
                   {quickLinks.map(({ icon: Icon, label, href }) => (
                     <Link
@@ -463,7 +463,7 @@ export function ContactContent() {
                         <div className="h-7 w-7 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0">
                           <Icon className="w-3.5 h-3.5" />
                         </div>
-                        <span className="text-xs font-medium text-slate-700 group-hover:text-primary transition-colors">{label}</span>
+                        <span className="text-sm font-medium text-slate-700 group-hover:text-primary transition-colors">{label}</span>
                       </div>
                       <ChevronRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-primary transition-colors" />
                     </Link>
@@ -478,9 +478,9 @@ export function ContactContent() {
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="text-sm font-bold text-slate-900">Chat on WhatsApp</div>
-                  <p className="text-xs text-slate-500 mt-0.5 leading-snug">Quick queries answered in minutes</p>
+                  <p className="text-sm text-slate-500 mt-0.5 leading-snug">Quick queries answered in minutes</p>
                 </div>
-                <Button size="sm" className="bg-emerald-600 hover:bg-emerald-700 text-white text-xs shrink-0" asChild>
+                <Button size="sm" className="bg-emerald-600 hover:bg-emerald-700 text-white text-sm shrink-0" asChild>
                   <Link href={WHATSAPP_TEL} target="_blank" className="inline-flex items-center gap-1.5">
                     Chat <ArrowRight className="w-3 h-3" />
                   </Link>
@@ -510,10 +510,10 @@ export function ContactContent() {
               <div className="max-w-xl">
                 <div className="inline-flex items-center gap-2 rounded-full bg-white/60 border border-white/70 px-3 py-1.5 mb-3">
                   <HeartPulse className="w-3.5 h-3.5 text-primary" />
-                  <span className="text-xs font-semibold text-slate-800">Same-day appointments available</span>
+                  <span className="text-sm font-semibold text-slate-800">Same-day appointments available</span>
                 </div>
                 <h2 className="text-2xl sm:text-3xl font-bold text-slate-900">Your health, our priority.</h2>
-                <p className="mt-2 text-slate-600 text-sm leading-relaxed">
+                <p className="mt-2 text-slate-600 text-base leading-relaxed">
                   Can't wait? Call us directly or message on WhatsApp for a quick response.
                 </p>
               </div>
@@ -540,7 +540,7 @@ export function ContactContent() {
       <div className="md:hidden fixed bottom-0 left-0 right-0 z-50 border-t border-slate-200/70 bg-white/90 backdrop-blur-sm">
         <div className="px-4 py-3 flex items-center justify-between gap-3">
           <div className="min-w-0">
-            <div className="text-[11px] text-slate-500">Najafgarh, New Delhi</div>
+            <div className="text-xs text-slate-500">Najafgarh, New Delhi</div>
             <div className="text-sm font-semibold text-slate-900">Narula Clinic</div>
           </div>
           <div className="flex gap-2 shrink-0">

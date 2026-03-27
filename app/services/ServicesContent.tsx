@@ -322,10 +322,10 @@ export function ServicesContent() {
             transition={{ duration: 0.5 }}
             className="text-center mb-8"
           >
-            <h2 className="text-2xl sm:text-3xl font-bold text-slate-900">
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900">
               Explore Our <span className="text-primary">Services</span>
             </h2>
-            <p className="mt-2 text-slate-500 text-sm max-w-xl mx-auto">
+            <p className="mt-2 text-slate-500 text-base max-w-xl mx-auto">
               Transparent, patient-first care across six specialities.
             </p>
           </motion.div>
@@ -347,17 +347,17 @@ export function ServicesContent() {
                       <div className="h-10 w-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center border border-primary/15 transition-transform group-hover:scale-105 shrink-0">
                         <Icon className="w-5 h-5" />
                       </div>
-                      <span className="text-xs font-semibold text-primary uppercase tracking-wide">
+                      <span className="text-sm font-semibold text-primary uppercase tracking-wide">
                         {s.eyebrow}
                       </span>
                     </div>
 
-                    <h3 className="mt-3 text-base font-bold text-slate-900 leading-snug">{s.title}</h3>
-                    <p className="mt-1.5 text-xs text-slate-500 leading-relaxed">{s.description}</p>
+                    <h3 className="mt-3 text-lg sm:text-xl font-bold text-slate-900 leading-snug">{s.title}</h3>
+                    <p className="mt-1.5 text-sm text-slate-600 leading-relaxed">{s.description}</p>
 
                     <ul className="mt-3 space-y-1.5 flex-1">
                       {s.bullets.slice(0, 4).map((b, i) => (
-                        <li key={i} className="flex items-start gap-2 text-xs text-slate-600">
+                        <li key={i} className="flex items-start gap-2 text-sm text-slate-600">
                           <span className="text-primary font-bold mt-0.5 shrink-0">•</span>
                           <span>{b}</span>
                         </li>
@@ -368,7 +368,7 @@ export function ServicesContent() {
                       <Button
                         variant="outline"
                         size="sm"
-                        className="flex-1 border-primary/40 text-primary hover:bg-primary/5 text-xs"
+                        className="flex-1 border-primary/40 text-primary hover:bg-primary/5 text-sm"
                         asChild
                       >
                         <Link href={`#${s.anchor}`}>
@@ -377,7 +377,7 @@ export function ServicesContent() {
                       </Button>
                       <Button
                         size="sm"
-                        className="flex-1 bg-primary hover:bg-primary/90 text-xs"
+                        className="flex-1 bg-primary hover:bg-primary/90 text-sm"
                         asChild
                       >
                         <Link href="/contact">Book Now</Link>
@@ -401,8 +401,8 @@ export function ServicesContent() {
             transition={{ duration: 0.5 }}
             className="text-center mb-8"
           >
-            <h2 className="text-2xl sm:text-3xl font-bold text-slate-900">Service Details</h2>
-            <p className="mt-2 text-slate-500 text-sm">
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900">Service Details</h2>
+            <p className="mt-2 text-slate-500 text-base">
               Everything we offer — explained clearly, with no jargon.
             </p>
           </motion.div>
@@ -431,7 +431,7 @@ export function ServicesContent() {
                         <div className="absolute inset-0 bg-gradient-to-tr from-sky-500/25 via-teal-500/10 to-emerald-500/20" />
                         {/* Badge pinned bottom */}
                         <div className="absolute bottom-3 left-3">
-                          <Badge className="bg-white/90 text-primary border-primary/20 text-xs shadow-sm">
+                          <Badge className="bg-white/90 text-primary border-primary/20 text-sm shadow-sm">
                             {block.eyebrow}
                           </Badge>
                         </div>
@@ -439,12 +439,12 @@ export function ServicesContent() {
 
                       {/* Content — 3/5 width */}
                       <div className="md:col-span-3 p-5 sm:p-6 md:[direction:ltr]">
-                        <h3 className="text-lg font-bold text-slate-900">{block.title}</h3>
-                        <p className="mt-2 text-sm text-slate-600 leading-relaxed">{block.description}</p>
+                        <h3 className="text-xl sm:text-2xl font-bold text-slate-900">{block.title}</h3>
+                        <p className="mt-2 text-base text-slate-600 leading-relaxed">{block.description}</p>
 
                         <ul className="mt-4 grid sm:grid-cols-2 gap-x-4 gap-y-2">
                           {block.bullets.map((b, i) => (
-                            <li key={i} className="flex items-start gap-2 text-xs text-slate-600">
+                            <li key={i} className="flex items-start gap-2 text-sm text-slate-600">
                               <CheckCircle2 className="w-3.5 h-3.5 text-primary mt-0.5 shrink-0" />
                               <span className="leading-snug">{b}</span>
                             </li>
@@ -454,7 +454,7 @@ export function ServicesContent() {
                         <div className="mt-5 flex flex-col sm:flex-row gap-2">
                           <Button
                             size="sm"
-                            className="bg-primary hover:bg-primary/90"
+                            className="bg-primary hover:bg-primary/90 text-sm"
                             asChild
                           >
                             <Link href="/contact">
@@ -464,7 +464,7 @@ export function ServicesContent() {
                           <Button
                             variant="outline"
                             size="sm"
-                            className="border-primary/40 text-primary hover:bg-primary/5"
+                            className="border-primary/40 text-primary hover:bg-primary/5 text-sm"
                             asChild
                           >
                             <Link href="#services">View All Services</Link>
@@ -490,10 +490,10 @@ export function ServicesContent() {
             transition={{ duration: 0.5 }}
             className="text-center mb-8"
           >
-            <h2 className="text-2xl sm:text-3xl font-bold text-slate-900">
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900">
               Why Choose Narula Clinic
             </h2>
-            <p className="mt-2 text-slate-500 text-sm max-w-xl mx-auto">
+            <p className="mt-2 text-slate-500 text-base max-w-xl mx-auto">
               Four pillars that set our services apart.
             </p>
           </motion.div>
@@ -513,8 +513,8 @@ export function ServicesContent() {
                     <div className="h-10 w-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center border border-primary/15">
                       <Icon className="w-5 h-5" />
                     </div>
-                    <h3 className="mt-3 font-bold text-slate-900 text-sm">{item.title}</h3>
-                    <p className="mt-1.5 text-xs text-slate-500 leading-relaxed">{item.description}</p>
+                    <h3 className="mt-3 font-bold text-slate-900 text-lg leading-snug">{item.title}</h3>
+                    <p className="mt-1.5 text-sm text-slate-600 leading-relaxed">{item.description}</p>
                   </Card>
                 </motion.div>
               )

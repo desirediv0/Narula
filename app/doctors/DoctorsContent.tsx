@@ -163,7 +163,7 @@ export function DoctorsContent() {
                 className="space-y-2"
               >
                 {trustPoints.map((t) => (
-                  <li key={t} className="flex items-center gap-2.5 text-sm text-slate-600">
+                  <li key={t} className="flex items-center gap-2.5 text-base text-slate-600">
                     <CheckCircle2 className="w-4 h-4 text-primary shrink-0" />
                     {t}
                   </li>
@@ -210,7 +210,7 @@ export function DoctorsContent() {
                         <Icon className="w-5 h-5" />
                       </div>
                       <div className="text-2xl font-bold text-slate-900">{s.number}</div>
-                      <div className="text-xs text-slate-500 mt-0.5 leading-snug">{s.label}</div>
+                      <div className="text-sm text-slate-500 mt-0.5 leading-snug">{s.label}</div>
                     </Card>
                   </motion.div>
                 )
@@ -232,10 +232,10 @@ export function DoctorsContent() {
             transition={{ duration: 0.5 }}
             className="text-center mb-10"
           >
-            <h2 className="text-2xl sm:text-3xl font-bold text-slate-900">
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900">
               Our <span className="text-primary">Specialists</span>
             </h2>
-            <p className="mt-2 text-slate-500 text-sm max-w-md mx-auto">
+            <p className="mt-2 text-slate-500 text-base max-w-md mx-auto">
               Click on any doctor to view their full profile, qualifications, and expertise.
             </p>
           </motion.div>
@@ -292,19 +292,19 @@ export function DoctorsContent() {
                     {/* Content */}
                     <div className="p-5 flex flex-col flex-1">
                       {/* Eyebrow speciality */}
-                      <div className={`text-xs font-semibold uppercase tracking-wide ${style.text}`}>
+                      <div className={`text-sm font-semibold uppercase tracking-wide ${style.text}`}>
                         {doc.speciality}
                       </div>
 
-                      <h2 className="mt-1 text-base font-bold text-slate-900 leading-tight">{doc.name}</h2>
+                      <h2 className="mt-1 text-lg font-bold text-slate-900 leading-tight">{doc.name}</h2>
 
                       <div className="mt-2">
-                        <Badge className={`${style.bg} ${style.text} ${style.border} text-[10px]`}>
+                        <Badge className={`${style.bg} ${style.text} ${style.border} text-xs`}>
                           {doc.experience}
                         </Badge>
                       </div>
 
-                      <p className="mt-3 text-sm text-slate-500 leading-relaxed line-clamp-3 flex-1">
+                      <p className="mt-3 text-base text-slate-500 leading-relaxed line-clamp-3 flex-1">
                         {doc.bio}
                       </p>
 
@@ -313,14 +313,14 @@ export function DoctorsContent() {
                         <Button
                           variant="outline"
                           size="sm"
-                          className="flex-1 border-primary/40 text-primary hover:bg-primary/5 text-xs"
+                          className="flex-1 border-primary/40 text-primary hover:bg-primary/5 text-sm"
                           onClick={(e) => { e.stopPropagation(); openDoctor(doc.id) }}
                         >
                           View Profile
                         </Button>
                         <Button
                           size="sm"
-                          className="flex-1 bg-primary hover:bg-primary/90 text-xs"
+                          className="flex-1 bg-primary hover:bg-primary/90 text-sm"
                           asChild
                           onClick={(e) => e.stopPropagation()}
                         >
@@ -349,11 +349,11 @@ export function DoctorsContent() {
               viewport={{ once: true, margin: '-60px' }}
               transition={{ duration: 0.55 }}
             >
-              <p className="text-primary font-semibold text-sm uppercase tracking-wide">A Legacy of Trust</p>
-              <h2 className="mt-2 text-2xl sm:text-3xl font-bold text-slate-900 leading-snug">
+              <p className="text-primary font-semibold text-base uppercase tracking-wide">A Legacy of Trust</p>
+              <h2 className="mt-2 text-3xl sm:text-4xl font-bold text-slate-900 leading-snug">
                 35+ Years of Expert Clinical Care
               </h2>
-              <p className="mt-3 text-slate-600 text-sm leading-relaxed">
+              <p className="mt-3 text-slate-600 text-base leading-relaxed">
                 Our founding doctors — <strong className="text-slate-800">Dr Sanjay Narula</strong> and{' '}
                 <strong className="text-slate-800">Dr Vandana Narula</strong> — built Narula Clinic on
                 the values of trust, transparency, and clinical excellence. The next generation continues
@@ -366,7 +366,7 @@ export function DoctorsContent() {
                   { icon: Stethoscope, text: '6 Specialities Available' },
                   { icon: HeartPulse, text: 'Patient-first Approach' },
                 ].map(({ icon: Icon, text }) => (
-                  <div key={text} className="flex items-center gap-2 text-sm text-slate-600">
+                  <div key={text} className="flex items-center gap-2 text-base text-slate-600">
                     <Icon className="w-4 h-4 text-primary shrink-0" />
                     <span>{text}</span>
                   </div>
@@ -400,7 +400,7 @@ export function DoctorsContent() {
                         <Icon className="w-5 h-5" />
                       </div>
                       <div className="mt-2 text-xl font-bold text-slate-900">{s.number}</div>
-                      <div className="text-xs text-slate-500 mt-0.5 leading-snug">{s.label}</div>
+                      <div className="text-sm text-slate-500 mt-0.5 leading-snug">{s.label}</div>
                     </Card>
                   </motion.div>
                 )
@@ -429,12 +429,12 @@ export function DoctorsContent() {
               <div className="max-w-xl">
                 <div className="inline-flex items-center gap-2 rounded-full bg-white/60 border border-white/70 px-3 py-1.5 mb-3">
                   <HeartPulse className="w-3.5 h-3.5 text-primary" />
-                  <span className="text-xs font-semibold text-slate-800">Same-day appointments available</span>
+                  <span className="text-sm font-semibold text-slate-800">Same-day appointments available</span>
                 </div>
                 <h2 className="text-2xl sm:text-3xl font-bold text-slate-900">
                   Ready to speak with a specialist?
                 </h2>
-                <p className="mt-2 text-slate-600 text-sm leading-relaxed">
+                <p className="mt-2 text-slate-600 text-base leading-relaxed">
                   Book a consultation and get expert care from our dedicated team.
                   We listen, explain clearly, and always put your health first.
                 </p>
