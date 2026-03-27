@@ -67,11 +67,11 @@ export function Navbar() {
                   priority
                 />
               </div>
-              <div className="hidden sm:block">
-                <div className="font-bold text-slate-900 text-base leading-tight">
+              <div className="block">
+                <div className="md:font-bold font-medium text-slate-900 md:text-base text-xs leading-tight">
                   Narula Multispeciality
                 </div>
-                <div className="text-xs text-primary font-medium leading-tight tracking-wide">
+                <div className="md:text-xs text-[10px] text-primary font-medium leading-tight tracking-wide">
                   Clinic · Najafgarh, Delhi
                 </div>
               </div>
