@@ -152,7 +152,7 @@ export function DoctorsContent() {
                 className="text-lg text-slate-600 leading-relaxed max-w-lg"
               >
                 A multi-generational team combining decades of surgical expertise with
-                modern diagnostic technology — all under one roof in Najafgarh, Delhi.
+                modern diagnostic technology — all under one roof in Gurugram, Haryana.
               </motion.p>
 
               {/* Trust points */}

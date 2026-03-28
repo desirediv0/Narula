@@ -7,6 +7,7 @@ import { Card } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { doctors } from '@/lib/clinic-data'
+import { CLINIC_ADDRESS } from '@/lib/clinic-address'
 
 import {
   HeartPulse,
@@ -111,7 +112,7 @@ export function AboutContent() {
             transition={{ duration: 0.55 }}
           >
             <Badge className="bg-primary/10 text-primary border-primary/20 mb-4">
-              Established in New Delhi
+              Gurugram, Haryana
             </Badge>
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight">
               About Narula Multispeciality Clinic
@@ -121,7 +122,7 @@ export function AboutContent() {
             </p>
             <p className="mt-4 max-w-3xl mx-auto text-slate-600 leading-relaxed text-base sm:text-lg">
               Founded by Dr Sanjay Narula and Dr Vandana Narula, Narula Multispeciality Clinic has been
-              a cornerstone of healthcare in Najafgarh, Delhi for over three decades. We combine
+              a cornerstone of healthcare in Gurugram, Haryana for over three decades. We combine
               clinical excellence with a warm, patient-first approach — treating the person, not just
               the symptom.
             </p>
@@ -164,7 +165,7 @@ export function AboutContent() {
               </h2>
               <p className="mt-3 text-slate-600 leading-relaxed text-base sm:text-lg">
                 What began as a single-doctor practice has grown into a thriving multispeciality
-                clinic trusted by families across Najafgarh and the wider Delhi NCR region. Today,
+                clinic trusted by families across Gurugram and the wider NCR. Today,
                 our second generation — Dr Sidhant Narula (Orthopaedics) and Dr Milind Shinde
                 (Paediatrics) — continues the legacy with the latest medical advancements.
               </p>
@@ -176,7 +177,7 @@ export function AboutContent() {
 
               <div className="mt-5 grid sm:grid-cols-2 gap-3">
                 {[
-                  { icon: MapPin, text: 'Najafgarh, New Delhi' },
+                  { icon: MapPin, text: CLINIC_ADDRESS },
                   { icon: Clock, text: 'Mon–Sat, 9 AM – 7 PM' },
                   { icon: Phone, text: '+91 98XXX XXXXX' },
                   { icon: CheckCircle2, text: 'NABH-aligned protocols' },
@@ -280,7 +281,7 @@ export function AboutContent() {
                 </div>
                 <h3 className="mt-3 text-xl font-bold text-slate-900">Our Vision</h3>
                 <p className="mt-2 text-base text-slate-600 leading-relaxed">
-                  To be the most trusted multispeciality clinic in Delhi NCR — where families return
+                  To be the most trusted multispeciality clinic in the NCR — where families return
                   for every stage of life with confidence.
                 </p>
                 <ul className="mt-3 space-y-2">

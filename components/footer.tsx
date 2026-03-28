@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
+import { CLINIC_ADDRESS, CLINIC_AREA_SHORT, CLINIC_MAPS_URL } from '@/lib/clinic-address'
 import {
   Mail, Phone, MapPin, Clock,
   Facebook, Twitter, Linkedin, Instagram,
@@ -101,14 +102,14 @@ export function Footer() {
                   Narula Multispeciality
                 </div>
                 <div className="text-xs text-sky-400 font-medium leading-tight mt-0.5">
-                  Clinic · Najafgarh, Delhi
+                  Clinic · {CLINIC_AREA_SHORT}
                 </div>
               </div>
             </Link>
 
             <p className="text-sm text-white/55 leading-relaxed mb-5">
               Compassionate, advanced healthcare under one roof — trusted by thousands
-              of families across Najafgarh &amp; Delhi NCR for over 35 years.
+              of families across Gurugram &amp; NCR for over 35 years.
             </p>
 
             {/* Socials */}
@@ -193,8 +194,8 @@ export function Footer() {
                 },
                 {
                   icon: MapPin,
-                  label: 'Najafgarh, New Delhi',
-                  href: 'https://maps.google.com',
+                  label: CLINIC_ADDRESS,
+                  href: CLINIC_MAPS_URL,
                   sub: 'View on Google Maps',
                 },
               ].map(({ icon: Icon, label, href, sub }) => (

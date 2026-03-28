@@ -14,6 +14,11 @@ import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 
 import {
+  CLINIC_ADDRESS,
+  CLINIC_AREA_SHORT,
+  CLINIC_MAP_EMBED_SRC,
+} from '@/lib/clinic-address'
+import {
   Phone,
   Mail,
   MapPin,
@@ -34,8 +39,6 @@ const PHONE_DISPLAY = '+91-XXXX-XXXX-XX'
 const PHONE_TEL = 'tel:+91XXXXXXXXXX'
 const WHATSAPP_TEL = 'https://wa.me/91XXXXXXXXXX'
 const EMAIL = 'info@narulaClinic.com'
-const MAP_SRC = 'https://www.google.com/maps?q=Narula%20Multispeciality%20Clinic&output=embed'
-
 /* ─── SCHEMA ────────────────────────────────────────────── */
 const schema = z.object({
   fullName: z.string().min(2, 'Please enter your full name.'),
@@ -61,7 +64,7 @@ const contactCards = [
   {
     icon: MapPin,
     title: 'Our Address',
-    lines: ['Your Clinic Address,', 'Najafgarh, New Delhi'],
+    lines: ['NH 2, Sector 15', 'Gurugram, Haryana 122001'],
     action: null,
     color: 'bg-sky-500/10 text-sky-600 border-sky-500/20',
   },
@@ -422,7 +425,7 @@ export function ContactContent() {
                   </div>
                   <div className="hidden sm:flex items-center gap-2 rounded-full bg-white border border-slate-200/70 px-3 py-1.5 shadow-sm shrink-0">
                     <MapPin className="w-3.5 h-3.5 text-primary" />
-                    <span className="text-sm font-semibold text-slate-700">Najafgarh, Delhi</span>
+                    <span className="text-sm font-semibold text-slate-700">{CLINIC_AREA_SHORT}</span>
                   </div>
                 </div>
 
@@ -430,7 +433,7 @@ export function ContactContent() {
                   <div className="relative w-full" style={{ aspectRatio: '16/10' }}>
                     <iframe
                       title="Clinic location map"
-                      src={MAP_SRC}
+                      src={CLINIC_MAP_EMBED_SRC}
                       className="absolute inset-0 w-full h-full"
                       loading="lazy"
                       referrerPolicy="no-referrer-when-downgrade"
@@ -441,7 +444,7 @@ export function ContactContent() {
                         <MapPin className="w-4 h-4 text-primary shrink-0" />
                         <div>
                           <div className="text-sm font-bold text-slate-900">Narula Multispeciality Clinic</div>
-                          <div className="text-xs text-slate-500">Najafgarh, New Delhi</div>
+                          <div className="text-xs text-slate-500 leading-snug">{CLINIC_ADDRESS}</div>
                         </div>
                       </div>
                     </div>
@@ -540,7 +543,7 @@ export function ContactContent() {
       <div className="md:hidden fixed bottom-0 left-0 right-0 z-50 border-t border-slate-200/70 bg-white/90 backdrop-blur-sm">
         <div className="px-4 py-3 flex items-center justify-between gap-3">
           <div className="min-w-0">
-            <div className="text-xs text-slate-500">Najafgarh, New Delhi</div>
+            <div className="text-xs text-slate-500 leading-snug">{CLINIC_ADDRESS}</div>
             <div className="text-sm font-semibold text-slate-900">Narula Clinic</div>
           </div>
           <div className="flex gap-2 shrink-0">

@@ -306,7 +306,7 @@ export function ServicesContent() {
               Our Medical Services
             </h1>
             <p className="mt-3 text-base sm:text-lg text-slate-600 max-w-xl mx-auto">
-              Expert, co-ordinated care for every stage of life — under one roof in Najafgarh, Delhi.
+              Expert, co-ordinated care for every stage of life — under one roof in Gurugram, Haryana.
             </p>
           </motion.div>
         </div>

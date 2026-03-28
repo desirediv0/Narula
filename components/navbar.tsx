@@ -9,6 +9,7 @@ import { Menu, Phone, X, ChevronRight, MapPin, Clock } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
+import { CLINIC_ADDRESS, CLINIC_AREA_SHORT } from '@/lib/clinic-address';
 
 const navLinks = [
   { label: 'Home', href: '/' },
@@ -72,7 +73,7 @@ export function Navbar() {
                   Narula Multispeciality
                 </div>
                 <div className="md:text-xs text-[10px] text-primary font-medium leading-tight tracking-wide">
-                  Clinic · Najafgarh, Delhi
+                  Clinic · {CLINIC_AREA_SHORT}
                 </div>
               </div>
             </Link>
@@ -196,7 +197,7 @@ export function Navbar() {
                   </div>
                   <div>
                     <div className="font-bold text-slate-900 text-sm leading-tight">Narula Clinic</div>
-                    <div className="text-[11px] text-primary font-medium leading-tight">Multispeciality · Delhi</div>
+                    <div className="text-[11px] text-primary font-medium leading-tight">Multispeciality · {CLINIC_AREA_SHORT}</div>
                   </div>
                 </div>
                 <button
@@ -254,7 +255,7 @@ export function Navbar() {
                       <MapPin className="w-3.5 h-3.5" />
                     </div>
                     <div>
-                      <div className="text-xs font-semibold text-slate-800">Najafgarh, New Delhi</div>
+                      <div className="text-xs font-semibold text-slate-800 leading-snug">{CLINIC_ADDRESS}</div>
                       <div className="text-[10px] text-slate-500">Narula Multispeciality Clinic</div>
                     </div>
                   </div>

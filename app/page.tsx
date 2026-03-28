@@ -27,6 +27,7 @@ import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { doctors } from '@/lib/clinic-data';
+import { CLINIC_ADDRESS, CLINIC_AREA_SHORT } from '@/lib/clinic-address';
 
 /* ─── DATA ─────────────────────────────────────────────── */
 
@@ -97,7 +98,8 @@ const stats = [
 const whyUs = [
   {
     title: '35+ Years of Clinical Excellence',
-    description: 'Founded by Dr Sanjay & Dr Vandana Narula, our clinic has served Najafgarh families for over three decades with unwavering commitment.',
+    description:
+      'Founded by Dr Sanjay & Dr Vandana Narula, our clinic has served families across Gurugram and NCR for over three decades with unwavering commitment.',
     icon: Award,
   },
   {
@@ -179,7 +181,7 @@ export default function Home() {
                 className="inline-flex items-center gap-2.5 rounded-full border border-primary/20 bg-primary/5 px-4 py-2"
               >
                 <span className="flex h-2 w-2 rounded-full bg-primary animate-pulse" />
-                <span className="text-sm font-medium text-primary">Trusted multi-speciality care · Najafgarh, Delhi</span>
+                <span className="text-sm font-medium text-primary">Trusted multi-speciality care · {CLINIC_AREA_SHORT}</span>
               </motion.div>
 
               {/* Headline */}
@@ -255,7 +257,7 @@ export default function Home() {
                 className="flex flex-col sm:flex-row gap-3 pt-1"
               >
                 {[
-                  { icon: MapPin, text: 'Najafgarh, New Delhi' },
+                  { icon: MapPin, text: CLINIC_ADDRESS },
                   { icon: Clock, text: 'Mon–Sat · 9 AM – 7 PM' },
                 ].map(({ icon: Icon, text }) => (
                   <div key={text} className="flex items-center gap-2 text-sm text-slate-500">
@@ -400,7 +402,7 @@ export default function Home() {
               Our <span className="text-primary">Medical Services</span>
             </h2>
             <p className="mt-3 text-slate-500 max-w-xl mx-auto text-sm sm:text-base">
-              Expert, co-ordinated care across six specialities — all under one roof in Najafgarh, Delhi.
+              Expert, co-ordinated care across six specialities — all under one roof in Gurugram, Haryana.
             </p>
           </motion.div>
 
@@ -481,7 +483,7 @@ export default function Home() {
               <p className="mt-3 text-slate-600 leading-relaxed text-sm sm:text-base">
                 Founded by <strong className="text-slate-800">Dr Sanjay Narula</strong> and{' '}
                 <strong className="text-slate-800">Dr Vandana Narula</strong>, Narula Multispeciality
-                Clinic has been a cornerstone of healthcare in Najafgarh, Delhi for over three decades.
+                Clinic has been a cornerstone of healthcare in Gurugram, Haryana for over three decades.
                 Today, the second generation — Dr Sidhant Narula (Orthopaedics) and Dr Milind Shinde
                 (Paediatrics) — continues this legacy with the latest medical advancements.
               </p>
@@ -534,7 +536,7 @@ export default function Home() {
                 <div className="mt-3 grid grid-cols-2 gap-2 p-1">
                   {[
                     { label: 'Est.', value: '1989', sub: 'Serving since' },
-                    { label: 'Location', value: 'Najafgarh', sub: 'New Delhi' },
+                    { label: 'Location', value: 'Sector 15', sub: 'Gurugram' },
                   ].map((item) => (
                     <div key={item.label} className="rounded-xl bg-slate-50 px-3.5 py-3 border border-slate-100">
                       <div className="text-[10px] text-slate-400 uppercase tracking-wide">{item.sub}</div>
