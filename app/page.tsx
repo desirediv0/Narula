@@ -60,9 +60,9 @@ const homeServices = [
     iconBg: 'bg-emerald-500/10 text-emerald-600 border-emerald-500/20',
   },
   {
-    title: 'General & Laparoscopic Surgery',
+    title: 'General Surgery',
     eyebrow: 'Surgical Excellence',
-    description: 'Minimally invasive keyhole surgeries — hernia, gallbladder, appendix & more.',
+    description: 'Hernia repair, gallbladder removal, appendectomy, and comprehensive surgical care.',
     icon: ShieldCheck,
     href: '/services#surgery',
     color: 'from-sky-500/15 to-teal-500/5',
@@ -109,7 +109,7 @@ const whyUs = [
   },
   {
     title: 'Modern Diagnostics & Technology',
-    description: '4D ultrasound, digital X-ray, laparoscopy suite, and an on-site lab — all under one roof for faster, accurate diagnosis.',
+      description: '4D ultrasound, digital X-ray, and an on-site lab — all under one roof for faster, accurate diagnosis.',
     icon: ShieldCheck,
   },
   {
@@ -218,7 +218,7 @@ export default function Home() {
               >
                 {[
                   'NABH-aligned protocols',
-                  '4D ultrasound & laparoscopy',
+                  '4D ultrasound & diagnostics',
                   'Same-day appointments',
                 ].map((item) => (
                   <div key={item} className="flex items-center gap-2 text-sm text-slate-600">

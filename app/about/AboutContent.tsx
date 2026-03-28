@@ -44,10 +44,10 @@ const specialities = [
       'Aesthetic and functional restorative procedures performed with surgical precision and utmost patient confidentiality.',
   },
   {
-    title: 'General & Laparoscopic Surgery',
+    title: 'General Surgery',
     icon: ShieldCheck,
     description:
-      'Minimally invasive keyhole surgeries, hernia repair, appendectomy, gallbladder removal, and more.',
+      'Hernia repair, appendectomy, gallbladder removal, and comprehensive surgical care.',
   },
   {
     title: 'Bone & Joint Care',
@@ -85,7 +85,7 @@ const whyChooseUs = [
   {
     title: 'Modern Diagnostics & Technology',
     description:
-      'Digital X-ray, 4D ultrasound, laparoscopy suite, and evidence-based treatment protocols.',
+      'Digital X-ray, 4D ultrasound, and evidence-based treatment protocols.',
     icon: ShieldCheck,
   },
 ]

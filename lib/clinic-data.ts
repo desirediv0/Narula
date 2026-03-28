@@ -102,14 +102,14 @@ export const services = [
     id: 2,
     name: 'General Surgery',
     icon: '🏥',
-    description: 'Advanced surgical procedures with minimally invasive techniques',
+    description: 'Comprehensive surgical procedures with expert care',
     features: [
-      'Laparoscopic Surgery',
       'Hernia Repair',
       'Appendectomy',
       'Gallbladder Surgery',
       'Thyroid Surgery',
       'Trauma Surgery',
+      'Medico-legal Consultations',
     ],
   },
   {

@@ -98,13 +98,13 @@ export function ServicesContent() {
       {
         id: 'surgery',
         eyebrow: 'Surgical Excellence',
-        title: 'General & Laparoscopic Surgery',
+        title: 'General Surgery',
         description:
-          'Minimally invasive keyhole surgeries for faster recovery, less pain, and shorter hospital stays.',
+          'Comprehensive surgical procedures with expert care for faster recovery and dependable outcomes.',
         icon: serviceIcon.surgery,
         anchor: 'surgery',
         bullets: [
-          'Laparoscopic hernia repair',
+          'Hernia repair',
           'Gallbladder removal (cholecystectomy)',
           'Appendectomy & abdominal surgeries',
           'Medico-legal surgical consultations',
@@ -204,12 +204,12 @@ export function ServicesContent() {
       {
         id: 'surgery',
         eyebrow: 'Surgical Excellence',
-        title: 'General & Laparoscopic Surgery',
+        title: 'General Surgery',
         img: '/general-laparoscopic-surgery.jpg',
         description:
-          'Led by Dr Sanjay Narula — a highly experienced general and medico-legal surgeon — our surgical department offers minimally invasive procedures that mean less pain, faster healing, and shorter stays.',
+          'Led by Dr Sanjay Narula — a highly experienced general and medico-legal surgeon — our surgical department offers comprehensive procedures with expert care, faster healing, and dependable recovery support.',
         bullets: [
-          'Laparoscopic hernia repair (inguinal, umbilical)',
+          'Hernia repair (inguinal, umbilical)',
           'Cholecystectomy (gallbladder removal)',
           'Appendectomy (emergency & elective)',
           'Abdominal & GI surgical consultations',
@@ -261,7 +261,7 @@ export function ServicesContent() {
       {
         title: 'Advanced Diagnostics',
         description:
-          '4D ultrasound, digital X-ray, laparoscopy suite, and modern lab equipment on-site.',
+          'Digital X-ray, 4D ultrasound, and modern lab equipment on-site.',
         icon: Microscope,
       },
       {

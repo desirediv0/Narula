@@ -24,7 +24,7 @@ const services = [
   { label: 'Obstetrics & Gynaecology', href: '/services#obgyn', icon: HeartPulse },
   { label: 'Infertility (IVF & IUI)', href: '/services#infertility', icon: Sparkles },
   { label: 'Cosmetic Gynaecology', href: '/services#cosmetic', icon: Pill },
-  { label: 'General & Lap. Surgery', href: '/services#surgery', icon: ShieldCheck },
+  { label: 'General Surgery', href: '/services#surgery', icon: ShieldCheck },
   { label: 'Bone & Joint Care', href: '/services#bone-joint', icon: Bone },
   { label: 'Paediatrics & Neonatology', href: '/services#paediatrics', icon: Baby },
 ]

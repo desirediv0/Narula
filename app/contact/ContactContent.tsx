@@ -53,7 +53,7 @@ const SERVICES = [
   'Obstetrics & Gynaecology',
   'Infertility (IVF / IUI)',
   'Cosmetic Gynaecology',
-  'General & Laparoscopic Surgery',
+  'General Surgery',
   'Bone & Joint Care',
   'Paediatrics & Neonatology',
   'Other / General Query',
