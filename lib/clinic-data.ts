@@ -3,7 +3,7 @@ export const doctors = [
     id: 1,
     name: 'Dr Vandana Narula',
     speciality: 'OBGYN Expert',
-    image: '/placeholder-user.jpg',
+    image: '/images/dr-vandana-narula.jpeg',
     bio: 'Infertility & cosmetic gynecology expert with 35+ years of experience, providing compassionate, world-class care for women across every stage of life.',
     qualifications: ['MD OBGYN', 'FICOG', 'CIMP'],
     experience: '35+ years',

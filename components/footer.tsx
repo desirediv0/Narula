@@ -8,8 +8,8 @@ import {
   ArrowRight, MessageCircle,
 } from 'lucide-react'
 
-const PHONE_TEL = 'tel:+91XXXXXXXXXX'
-const WHATSAPP_TEL = 'https://wa.me/91XXXXXXXXXX'
+const PHONE_TEL = 'tel:+919810433502'
+const WHATSAPP_TEL = 'https://wa.me/919810433502'
 const EMAIL = 'info@narulaClinic.com'
 
 const quickLinks = [
@@ -176,7 +176,7 @@ export function Footer() {
               {[
                 {
                   icon: Phone,
-                  label: '+91-XXXX-XXXX-XX',
+                  label: '98104 33502, 98108 09067',
                   href: PHONE_TEL,
                   sub: 'Mon–Sat · 9 AM – 7 PM',
                 },

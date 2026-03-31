@@ -179,7 +179,7 @@ export function AboutContent() {
                 {[
                   { icon: MapPin, text: CLINIC_ADDRESS },
                   { icon: Clock, text: 'Mon–Sat, 9 AM – 7 PM' },
-                  { icon: Phone, text: '+91 98XXX XXXXX' },
+                  { icon: Phone, text: '9810433502, 9810809067' },
                   { icon: CheckCircle2, text: 'NABH-aligned protocols' },
                 ].map(({ icon: Icon, text }) => (
                   <div key={text} className="flex items-center gap-2 text-base text-slate-600">

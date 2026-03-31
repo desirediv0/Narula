@@ -35,9 +35,9 @@ import {
 } from 'lucide-react'
 
 /* ─── CONSTANTS ─────────────────────────────────────────── */
-const PHONE_DISPLAY = '+91-XXXX-XXXX-XX'
-const PHONE_TEL = 'tel:+91XXXXXXXXXX'
-const WHATSAPP_TEL = 'https://wa.me/91XXXXXXXXXX'
+const PHONE_DISPLAY = '98104 33502, 98108 09067'
+const PHONE_TEL = 'tel:+919810433502'
+const WHATSAPP_TEL = 'https://wa.me/919810433502'
 const EMAIL = 'info@narulaClinic.com'
 /* ─── SCHEMA ────────────────────────────────────────────── */
 const schema = z.object({

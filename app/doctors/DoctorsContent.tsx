@@ -182,7 +182,7 @@ export function DoctorsContent() {
                   </Link>
                 </Button>
                 <Button size="lg" variant="outline" className="border-primary/40 text-primary hover:bg-primary/5" asChild>
-                  <Link href="/contact" className="inline-flex items-center gap-2">
+                  <Link href="tel:+919810433502" className="inline-flex items-center gap-2">
                     <Phone className="w-4 h-4" /> Call Now
                   </Link>
                 </Button>

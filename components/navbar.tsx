@@ -114,7 +114,7 @@ export function Navbar() {
                 className="border-primary/40 text-primary hover:bg-primary/5 gap-1.5"
                 asChild
               >
-                <Link href="tel:+91XXXXXXXXXX" className="inline-flex items-center">
+                <Link href="tel:+919810433502" className="inline-flex items-center">
                   <Phone className="w-3.5 h-3.5" />
                   Call Now
                 </Link>
@@ -137,7 +137,7 @@ export function Navbar() {
                 aria-label="Call Now"
                 asChild
               >
-                <Link href="tel:+91XXXXXXXXXX">
+                <Link href="tel:+919810433502">
                   <Phone className="w-4 h-4" />
                 </Link>
               </Button>
@@ -287,7 +287,7 @@ export function Navbar() {
                   className="w-full border-primary/40 text-primary hover:bg-primary/5 h-10"
                   asChild
                 >
-                  <Link href="tel:+91XXXXXXXXXX" className="inline-flex items-center gap-2">
+                  <Link href="tel:+919810433502" className="inline-flex items-center gap-2">
                     <Phone className="w-4 h-4" />
                     Call Now
                   </Link>
