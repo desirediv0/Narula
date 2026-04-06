@@ -23,6 +23,7 @@ import {
   Shield,
   CheckCircle2,
   ArrowRight,
+  Scale,
 } from 'lucide-react'
 
 type ServiceCard = {
@@ -42,6 +43,7 @@ const serviceIcon = {
   surgery: Stethoscope,
   ortho: Bone,
   pediatrics: Baby,
+  medicolegal: Scale,
 } as const
 
 export function ServicesContent() {
@@ -90,9 +92,9 @@ export function ServicesContent() {
         bullets: [
           'Vaginal rejuvenation procedures',
           'Postpartum restorative care',
-          'Scar tissue and perineal repair',
-          'Labial aesthetic correction',
           'Functional pelvic floor support',
+          'Stress urinary incontinence management',
+          'Aesthetic refinement procedures',
         ],
       },
       {
@@ -104,11 +106,10 @@ export function ServicesContent() {
         icon: serviceIcon.surgery,
         anchor: 'surgery',
         bullets: [
+          'Minor surgical procedures',
           'Hernia repair',
           'Gallbladder removal (cholecystectomy)',
           'Appendectomy & abdominal surgeries',
-          'Medico-legal surgical consultations',
-          'Post-operative recovery support',
         ],
       },
       {
@@ -141,6 +142,22 @@ export function ServicesContent() {
           'Growth & development monitoring',
           'Paediatric nutrition & dietary guidance',
           'Obesity, puberty, diabetes & growth clinic',
+        ],
+      },
+      {
+        id: 'medicolegal',
+        eyebrow: 'Medico-Legal Support',
+        title: 'Medicolegal Services',
+        description:
+          'Partner of KN MEDICOLEGAL SUPPORT (knmedicolegal.com) — Expert medicolegal consultations for medical professionals and institutions.',
+        icon: serviceIcon.medicolegal,
+        anchor: 'medicolegal',
+        bullets: [
+          'Training of staff',
+          'Audit of medical records',
+          'Medical negligence consultation',
+          'Expert documentation support',
+          'Injury assessment services',
         ],
       },
     ],
@@ -194,11 +211,10 @@ export function ServicesContent() {
           'Performed with surgical precision and the utmost confidentiality, our cosmetic gynaecology procedures address both aesthetic concerns and functional discomfort — helping women feel comfortable and confident in their own bodies.',
         bullets: [
           'Vaginal rejuvenation & tightening',
-          'Labial aesthetic correction (labiaplasty)',
           'Postpartum perineal restoration',
-          'Scar tissue repair & revision',
           'Pelvic floor strengthening support',
           'Stress urinary incontinence management',
+          'Functional aesthetic procedures',
         ],
       },
       {
@@ -207,15 +223,14 @@ export function ServicesContent() {
         title: 'General Surgery',
         img: '/general-laparoscopic-surgery.jpg',
         description:
-          'Led by Dr Sanjay Narula — a highly experienced general and medico-legal surgeon — our surgical department offers comprehensive procedures with expert care, faster healing, and dependable recovery support.',
+          'Led by Dr Sanjay Narula — a highly experienced general surgeon — our surgical department offers comprehensive procedures with expert care, faster healing, and dependable recovery support.',
         bullets: [
+          'Minor surgical procedures',
           'Hernia repair (inguinal, umbilical)',
           'Cholecystectomy (gallbladder removal)',
           'Appendectomy (emergency & elective)',
           'Abdominal & GI surgical consultations',
-          'Medico-legal surgical case documentation',
-          'Thyroid & breast lump surgical assessment',
-          'Post-operative wound care & recovery guidance',
+          'Wound care & recovery guidance',
         ],
       },
       {
@@ -252,6 +267,22 @@ export function ServicesContent() {
           'OPD for children aged 0–18 years',
         ],
       },
+      {
+        id: 'medicolegal',
+        eyebrow: 'Medico-Legal Support',
+        title: 'Medicolegal Services',
+        img: '/medicolegal-services.jpg',
+        description:
+          'As a partner of KN MEDICOLEGAL SUPPORT (knmedicolegal.com), Dr Sanjay Narula provides comprehensive medicolegal consultations and support services for medical professionals, institutions, and individuals — ensuring compliance, quality, and protection.',
+        bullets: [
+          'Training of clinical and administrative staff',
+          'Audit of medical records and institutional protocols',
+          'Consultation in medical negligence cases',
+          'Expert documentation and legal support',
+          'Injury assessment and report preparation',
+          'Risk management consultation',
+        ],
+      },
     ],
     []
   )
@@ -259,15 +290,15 @@ export function ServicesContent() {
   const why = useMemo(
     () => [
       {
-        title: 'Advanced Diagnostics',
+        title: 'Gynaecological Ultrasound',
         description:
-          'Digital X-ray, 4D ultrasound, and modern lab equipment on-site.',
+          'Specialized gynaecological ultrasound imaging for precise diagnosis and monitoring.',
         icon: Microscope,
       },
       {
         title: 'Experienced Specialists',
         description:
-          '35+ years of combined clinical expertise across six medical specialities.',
+          '35+ years of combined clinical expertise across seven medical specialities.',
         icon: Shield,
       },
       {
@@ -300,7 +331,7 @@ export function ServicesContent() {
             transition={{ duration: 0.55 }}
           >
             <Badge className="bg-primary/10 text-primary border-primary/20 mb-3">
-              6 Specialities · One Clinic
+              7 Specialities · One Clinic
             </Badge>
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight">
               Our Medical Services
@@ -326,7 +357,7 @@ export function ServicesContent() {
               Explore Our <span className="text-primary">Services</span>
             </h2>
             <p className="mt-2 text-slate-500 text-base max-w-xl mx-auto">
-              Transparent, patient-first care across six specialities.
+              Transparent, patient-first care across seven specialities.
             </p>
           </motion.div>
 

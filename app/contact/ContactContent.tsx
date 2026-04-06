@@ -64,7 +64,7 @@ const contactCards = [
   {
     icon: MapPin,
     title: 'Our Address',
-    lines: ['NH 2, Sector 15', 'Gurugram, Haryana 122001'],
+    lines: ['NH 2, Sector 15 Part 2', 'Gurugram, Haryana 122001'],
     action: null,
     color: 'bg-sky-500/10 text-sky-600 border-sky-500/20',
   },

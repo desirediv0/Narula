@@ -83,9 +83,9 @@ const whyChooseUs = [
     icon: HeartPulse,
   },
   {
-    title: 'Modern Diagnostics & Technology',
+    title: 'Gynaecological Ultrasound & Diagnostics',
     description:
-      'Digital X-ray, 4D ultrasound, and evidence-based treatment protocols.',
+      'Specialized gynaecological ultrasound imaging and evidence-based diagnostic protocols.',
     icon: ShieldCheck,
   },
 ]
@@ -94,7 +94,7 @@ const stats = [
   { number: '35+', label: 'Years of experience' },
   { number: '4', label: 'Expert specialists' },
   { number: '10,000+', label: 'Patients treated' },
-  { number: '6', label: 'Specialities offered' },
+  { number: '7', label: 'Specialities offered' },
 ]
 
 export function AboutContent() {

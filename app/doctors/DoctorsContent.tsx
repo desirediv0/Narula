@@ -363,7 +363,7 @@ export function DoctorsContent() {
                 {[
                   { icon: Clock, text: 'Mon–Sat · 9 AM – 7 PM' },
                   { icon: ShieldCheck, text: 'NABH-aligned Protocols' },
-                  { icon: Stethoscope, text: '6 Specialities Available' },
+                  { icon: Stethoscope, text: '7 Specialities Available' },
                   { icon: HeartPulse, text: 'Patient-first Approach' },
                 ].map(({ icon: Icon, text }) => (
                   <div key={text} className="flex items-center gap-2 text-base text-slate-600">

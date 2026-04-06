@@ -1,5 +1,5 @@
 /** Full clinic address — single source of truth for site copy */
-export const CLINIC_ADDRESS = 'NH 2, Sector 15, Gurugram, Haryana 122001'
+export const CLINIC_ADDRESS = 'NH 2, Sector 15 Part 2, Gurugram, Haryana 122001'
 
 /** Short area line for compact UI (header badge, chips) */
 export const CLINIC_AREA_SHORT = 'Gurugram, Haryana'

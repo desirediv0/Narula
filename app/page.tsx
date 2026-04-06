@@ -91,7 +91,7 @@ const homeServices = [
 const stats = [
   { number: '35+', label: 'Years Experience', icon: Award },
   { number: '10,000+', label: 'Patients Treated', icon: Users },
-  { number: '6', label: 'Specialities', icon: Stethoscope },
+  { number: '7', label: 'Specialities', icon: Stethoscope },
   { number: '4', label: 'Expert Doctors', icon: Activity },
 ];
 
@@ -108,8 +108,8 @@ const whyUs = [
     icon: Stethoscope,
   },
   {
-    title: 'Modern Diagnostics & Technology',
-      description: '4D ultrasound, digital X-ray, and an on-site lab — all under one roof for faster, accurate diagnosis.',
+    title: 'Gynaecological Ultrasound Imaging',
+    description: 'Specialized gynaecological ultrasound for precise diagnosis and monitoring of women\'s health conditions.',
     icon: ShieldCheck,
   },
   {
@@ -205,7 +205,7 @@ export default function Home() {
                   className="mt-5 text-lg sm:text-xl text-slate-600 leading-relaxed max-w-lg"
                 >
                   Built on 35+ years of clinical trust — delivering expert, co-ordinated healthcare
-                  across six specialities for every stage of your family's life.
+                  across seven specialities for every stage of your family's life.
                 </motion.p>
               </div>
 
@@ -218,7 +218,7 @@ export default function Home() {
               >
                 {[
                   'NABH-aligned protocols',
-                  '4D ultrasound & diagnostics',
+                  'Gynaecological ultrasound imaging',
                   'Same-day appointments',
                 ].map((item) => (
                   <div key={item} className="flex items-center gap-2 text-sm text-slate-600">
@@ -396,13 +396,13 @@ export default function Home() {
             className="text-center mb-10"
           >
             <Badge className="bg-primary/10 text-primary border-primary/20 mb-3">
-              6 Specialities · One Clinic
+              7 Specialities · One Clinic
             </Badge>
             <h2 className="text-3xl sm:text-4xl font-bold text-slate-900">
               Our <span className="text-primary">Medical Services</span>
             </h2>
             <p className="mt-3 text-slate-500 max-w-xl mx-auto text-sm sm:text-base">
-              Expert, co-ordinated care across six specialities — all under one roof in Gurugram, Haryana.
+              Expert, co-ordinated care across seven specialities — all under one roof in Gurugram, Haryana.
             </p>
           </motion.div>
 
