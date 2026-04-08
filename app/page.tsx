@@ -27,7 +27,7 @@ import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { doctors } from '@/lib/clinic-data';
-import { CLINIC_ADDRESS, CLINIC_AREA_SHORT } from '@/lib/clinic-address';
+import { CLINIC_ADDRESS, CLINIC_AREA_SHORT, CLINIC_TIMINGS } from '@/lib/clinic-address';
 
 /* ─── DATA ─────────────────────────────────────────────── */
 
@@ -258,7 +258,7 @@ export default function Home() {
               >
                 {[
                   { icon: MapPin, text: CLINIC_ADDRESS },
-                  { icon: Clock, text: 'Mon–Sat · 9 AM – 7 PM' },
+                  { icon: Clock, text: CLINIC_TIMINGS },
                 ].map(({ icon: Icon, text }) => (
                   <div key={text} className="flex items-center gap-2 text-sm text-slate-500">
                     <Icon className="w-3.5 h-3.5 text-primary shrink-0" />
@@ -747,7 +747,8 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-60px' }}
             transition={{ duration: 0.6 }}
-            className="relative overflow-hidden rounded-3xl border border-white/30 shadow-xl bg-gradient-to-r from-sky-500/20 via-teal-500/20 to-emerald-500/20"
+            className="relative overflow-hidden rounded-xl border border-white/30 shadow-xl bg-gradient-to-r from-sky-500/20 via-teal-500/20 to-emerald-500/20"
+
           >
             {/* Decorative blur circles */}
             <div className="absolute -top-20 -right-20 h-64 w-64 rounded-full bg-sky-400/20 blur-3xl pointer-events-none" />

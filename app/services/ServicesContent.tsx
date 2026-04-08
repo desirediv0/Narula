@@ -562,7 +562,8 @@ export function ServicesContent() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-60px' }}
             transition={{ duration: 0.55 }}
-            className="rounded-3xl border border-white/40 bg-gradient-to-r from-sky-500/15 via-teal-500/10 to-emerald-500/15 shadow-lg overflow-hidden"
+            className="rounded-xl border border-white/40 bg-gradient-to-r from-sky-500/15 via-teal-500/10 to-emerald-500/15 shadow-lg overflow-hidden"
+
           >
             <div className="p-7 sm:p-10 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
               <div className="max-w-xl">

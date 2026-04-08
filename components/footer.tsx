@@ -1,6 +1,13 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { CLINIC_ADDRESS, CLINIC_AREA_SHORT, CLINIC_MAPS_URL } from '@/lib/clinic-address'
+import {
+  CLINIC_ADDRESS,
+  CLINIC_AREA_SHORT,
+  CLINIC_MAPS_URL,
+  CLINIC_EMAIL,
+  CLINIC_TIMINGS,
+  CLINIC_APPOINTMENT_NOTE,
+} from '@/lib/clinic-address'
 import {
   Mail, Phone, MapPin, Clock,
   Facebook, Twitter, Linkedin, Instagram,
@@ -10,7 +17,7 @@ import {
 
 const PHONE_TEL = 'tel:+919810433502'
 const WHATSAPP_TEL = 'https://wa.me/919810433502'
-const EMAIL = 'info@narulaClinic.com'
+
 
 const quickLinks = [
   { label: 'Home', href: '/' },
@@ -178,8 +185,9 @@ export function Footer() {
                   icon: Phone,
                   label: '98104 33502, 98108 09067',
                   href: PHONE_TEL,
-                  sub: 'Mon–Sat · 9 AM – 7 PM',
+                  sub: `${CLINIC_TIMINGS} (${CLINIC_APPOINTMENT_NOTE})`,
                 },
+
                 {
                   icon: MessageCircle,
                   label: 'WhatsApp Us',
@@ -188,10 +196,11 @@ export function Footer() {
                 },
                 {
                   icon: Mail,
-                  label: EMAIL,
-                  href: `mailto:${EMAIL}`,
+                  label: CLINIC_EMAIL,
+                  href: `mailto:${CLINIC_EMAIL}`,
                   sub: 'Reply within 24 hours',
                 },
+
                 {
                   icon: MapPin,
                   label: CLINIC_ADDRESS,
@@ -222,10 +231,11 @@ export function Footer() {
             <div className="mt-5 inline-flex items-center gap-2 rounded-xl border border-white/12 bg-white/6 px-3 py-2">
               <Clock className="w-3.5 h-3.5 text-sky-400 shrink-0" />
               <div>
-                <div className="text-[11px] font-semibold text-white/80">Mon–Sat · 9 AM – 7 PM</div>
-                <div className="text-[10px] text-white/40">Sunday: Emergency Only</div>
+                <div className="text-[11px] font-semibold text-white/80">{CLINIC_TIMINGS}</div>
+                <div className="text-[10px] text-white/40">{CLINIC_APPOINTMENT_NOTE}</div>
               </div>
             </div>
+
           </div>
 
         </div>

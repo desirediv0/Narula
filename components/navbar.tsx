@@ -9,7 +9,7 @@ import { Menu, Phone, X, ChevronRight, MapPin, Clock } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
-import { CLINIC_ADDRESS, CLINIC_AREA_SHORT } from '@/lib/clinic-address';
+import { CLINIC_ADDRESS, CLINIC_AREA_SHORT, CLINIC_TIMINGS, CLINIC_APPOINTMENT_NOTE } from '@/lib/clinic-address';
 
 const navLinks = [
   { label: 'Home', href: '/' },
@@ -264,9 +264,10 @@ export function Navbar() {
                       <Clock className="w-3.5 h-3.5" />
                     </div>
                     <div>
-                      <div className="text-xs font-semibold text-slate-800">Mon–Sat · 9 AM – 7 PM</div>
-                      <div className="text-[10px] text-slate-500">Sunday: Emergency Only</div>
+                      <div className="text-xs font-semibold text-slate-800">{CLINIC_TIMINGS}</div>
+                      <div className="text-[10px] text-slate-500">{CLINIC_APPOINTMENT_NOTE}</div>
                     </div>
+
                   </div>
                 </div>
               </nav>

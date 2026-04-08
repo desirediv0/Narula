@@ -7,7 +7,7 @@ import { Card } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { doctors } from '@/lib/clinic-data'
-import { CLINIC_ADDRESS } from '@/lib/clinic-address'
+import { CLINIC_ADDRESS, CLINIC_TIMINGS } from '@/lib/clinic-address'
 
 import {
   HeartPulse,
@@ -178,7 +178,7 @@ export function AboutContent() {
               <div className="mt-5 grid sm:grid-cols-2 gap-3">
                 {[
                   { icon: MapPin, text: CLINIC_ADDRESS },
-                  { icon: Clock, text: 'Mon–Sat, 9 AM – 7 PM' },
+                  { icon: Clock, text: CLINIC_TIMINGS },
                   { icon: Phone, text: '9810433502, 9810809067' },
                   { icon: CheckCircle2, text: 'NABH-aligned protocols' },
                 ].map(({ icon: Icon, text }) => (
@@ -522,7 +522,8 @@ export function AboutContent() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-60px' }}
             transition={{ duration: 0.55 }}
-            className="rounded-3xl overflow-hidden border border-white/30 shadow-lg bg-gradient-to-r from-sky-500/20 via-teal-500/20 to-emerald-500/20 p-8 sm:p-10 text-center"
+            className="rounded-xl overflow-hidden border border-white/30 shadow-lg bg-gradient-to-r from-sky-500/20 via-teal-500/20 to-emerald-500/20 p-8 sm:p-10 text-center"
+
           >
             <h2 className="text-3xl sm:text-4xl font-bold text-slate-900">
               Your Health, Our Priority

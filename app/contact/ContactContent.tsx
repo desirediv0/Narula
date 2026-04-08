@@ -17,7 +17,11 @@ import {
   CLINIC_ADDRESS,
   CLINIC_AREA_SHORT,
   CLINIC_MAP_EMBED_SRC,
+  CLINIC_EMAIL,
+  CLINIC_TIMINGS,
+  CLINIC_APPOINTMENT_NOTE,
 } from '@/lib/clinic-address'
+
 import {
   Phone,
   Mail,
@@ -38,7 +42,7 @@ import {
 const PHONE_DISPLAY = '98104 33502, 98108 09067'
 const PHONE_TEL = 'tel:+919810433502'
 const WHATSAPP_TEL = 'https://wa.me/919810433502'
-const EMAIL = 'info@narulaClinic.com'
+
 /* ─── SCHEMA ────────────────────────────────────────────── */
 const schema = z.object({
   fullName: z.string().min(2, 'Please enter your full name.'),
@@ -78,14 +82,16 @@ const contactCards = [
   {
     icon: Mail,
     title: 'Email Us',
-    lines: [EMAIL],
-    action: { label: 'Send Email', href: `mailto:${EMAIL}` },
+    lines: [CLINIC_EMAIL],
+    action: { label: 'Send Email', href: `mailto:${CLINIC_EMAIL}` },
+
     color: 'bg-emerald-500/10 text-emerald-600 border-emerald-500/20',
   },
   {
     icon: Clock,
     title: 'Working Hours',
-    lines: ['Mon–Sat: 9:00 AM – 7:00 PM', 'Sunday: Emergency Only'],
+    lines: [CLINIC_TIMINGS, CLINIC_APPOINTMENT_NOTE, 'Sunday: Emergency Only'],
+
     action: null,
     color: 'bg-primary/10 text-primary border-primary/20',
   },
@@ -105,6 +111,8 @@ const quickLinks = [
 export function ContactContent() {
   const [submitted, setSubmitted] = useState(false)
   const [submitSuccess, setSubmitSuccess] = useState(false)
+  const [isSubmitError, setIsSubmitError] = useState(false)
+
 
   const defaultValues = useMemo<FormValues>(
     () => ({ fullName: '', phone: '', email: '', service: '', message: '' }),
@@ -114,7 +122,7 @@ export function ContactContent() {
   const {
     register,
     handleSubmit,
-    formState: { errors, isSubmitting },
+    formState: { errors },
     reset,
   } = useForm<FormValues>({
     resolver: zodResolver(schema),
@@ -124,13 +132,31 @@ export function ContactContent() {
 
   const onSubmit = async (values: FormValues) => {
     setSubmitted(true)
-    await new Promise((r) => setTimeout(r, 1200))
-    reset(defaultValues)
-    setSubmitted(false)
-    setSubmitSuccess(true)
-    setTimeout(() => setSubmitSuccess(false), 5000)
-    console.log('Contact form:', values)
+    setIsSubmitError(false)
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(values),
+      })
+
+      const result = await response.json()
+
+      if (result.success) {
+        setSubmitSuccess(true)
+        reset(defaultValues)
+      } else {
+        setIsSubmitError(true)
+      }
+    } catch (error) {
+      console.error('Submission error:', error)
+      setIsSubmitError(true)
+    } finally {
+      setSubmitted(false)
+    }
   }
+
 
   return (
     <div className="bg-background pb-24">
@@ -193,8 +219,9 @@ export function ContactContent() {
                   'Same-day appointments for urgent cases',
                   'Replies within 24 hours for email queries',
                   'WhatsApp consultation available',
-                  'Mon–Sat, 9 AM – 7 PM',
+                  `${CLINIC_TIMINGS} (${CLINIC_APPOINTMENT_NOTE})`,
                 ].map((t) => (
+
                   <li key={t} className="flex items-center gap-2.5 text-base text-slate-600">
                     <CheckCircle2 className="w-4 h-4 text-primary shrink-0" />
                     {t}
@@ -238,8 +265,9 @@ export function ContactContent() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.28 + idx * 0.08 }}
                   >
-                    <Card className="rounded-2xl border-slate-200/60 bg-white/80 backdrop-blur shadow-sm p-5 h-full hover:shadow-lg transition-shadow">
-                      <div className={`h-10 w-10 rounded-xl flex items-center justify-center border mb-3 ${c.color}`}>
+                    <Card className="rounded-xl border-slate-200/60 bg-white/80 backdrop-blur shadow-sm p-5 h-full hover:shadow-lg transition-shadow">
+                      <div className={`h-10 w-10 rounded-lg flex items-center justify-center border mb-3 ${c.color}`}>
+
                         <Icon className="w-5 h-5" />
                       </div>
                       <h3 className="font-bold text-slate-900 text-base">{c.title}</h3>
@@ -286,126 +314,143 @@ export function ContactContent() {
                 </p>
               </div>
 
-              <Card className="rounded-2xl border-slate-200/60 bg-white shadow-sm p-6 sm:p-7">
-                {/* Success banner */}
-                {submitSuccess && (
+              <Card className="rounded-xl border-slate-200/60 bg-white shadow-sm p-6 sm:p-7 min-h-[400px] flex flex-col justify-center">
+                {/* Success State */}
+                {submitSuccess ? (
                   <motion.div
-                    initial={{ opacity: 0, y: -8 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    className="mb-5 flex items-start gap-3 p-4 rounded-xl border border-emerald-200 bg-emerald-50"
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    className="text-center py-8"
                   >
-                    <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
-                    <div>
-                      <p className="text-base font-semibold text-emerald-800">Message Sent!</p>
-                      <p className="text-sm text-emerald-700 mt-0.5">Our team will contact you shortly to confirm your appointment.</p>
+                    <div className="h-20 w-20 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto mb-6">
+                      <CheckCircle2 className="w-10 h-10" />
                     </div>
-                  </motion.div>
-                )}
-
-                <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
-                  {/* Name + Phone row */}
-                  <div className="grid sm:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-sm font-medium text-slate-800 mb-1.5">
-                        Full Name <span className="text-red-400">*</span>
-                      </label>
-                      <Input
-                        placeholder="Your full name"
-                        className="bg-slate-50/70 border-slate-200 focus:bg-white transition-colors"
-                        {...register('fullName')}
-                      />
-                      {errors.fullName && (
-                        <p className="mt-1.5 text-sm text-red-500">{errors.fullName.message}</p>
-                      )}
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-slate-800 mb-1.5">
-                        Phone <span className="text-red-400">*</span>
-                      </label>
-                      <Input
-                        placeholder="+91 98765 43210"
-                        className="bg-slate-50/70 border-slate-200 focus:bg-white transition-colors"
-                        {...register('phone')}
-                      />
-                      {errors.phone && (
-                        <p className="mt-1.5 text-sm text-red-500">{errors.phone.message}</p>
-                      )}
-                    </div>
-                  </div>
-
-                  {/* Email */}
-                  <div>
-                    <label className="block text-sm font-medium text-slate-800 mb-1.5">
-                      Email <span className="text-slate-400 font-normal text-sm">(optional)</span>
-                    </label>
-                    <Input
-                      placeholder="your@email.com"
-                      className="bg-slate-50/70 border-slate-200 focus:bg-white transition-colors"
-                      {...register('email')}
-                    />
-                    {errors.email && (
-                      <p className="mt-1.5 text-sm text-red-500">{errors.email.message}</p>
-                    )}
-                  </div>
-
-                  {/* Service */}
-                  <div>
-                    <label className="block text-sm font-medium text-slate-800 mb-1.5">
-                      Speciality / Service Needed
-                    </label>
-                    <select
-                      {...register('service')}
-                      className="w-full rounded-md border border-slate-200 bg-slate-50/70 px-3 py-2 text-base text-slate-700 focus:bg-white focus:outline-none focus:ring-2 focus:ring-primary/30 transition-colors"
+                    <h3 className="text-2xl font-bold text-slate-900 mb-3">Thank You!</h3>
+                    <p className="text-slate-600 mb-8 max-w-sm mx-auto">
+                      Your enquiry has been received. Our team will review your details and contact you on the provided phone number shortly.
+                    </p>
+                    <Button 
+                      variant="outline" 
+                      onClick={() => setSubmitSuccess(false)}
+                      className="border-slate-200 text-slate-600 hover:bg-slate-50"
                     >
-                      <option value="">Select a speciality...</option>
-                      {SERVICES.map((s) => (
-                        <option key={s} value={s}>{s}</option>
-                      ))}
-                    </select>
-                  </div>
-
-                  {/* Message */}
-                  <div>
-                    <label className="block text-sm font-medium text-slate-800 mb-1.5">
-                      Message <span className="text-red-400">*</span>
-                    </label>
-                    <Textarea
-                      rows={4}
-                      placeholder="Tell us what you need help with — symptoms, preferred timing, or any questions..."
-                      className="bg-slate-50/70 border-slate-200 focus:bg-white transition-colors resize-none"
-                      {...register('message')}
-                    />
-                    {errors.message && (
-                      <p className="mt-1.5 text-sm text-red-500">{errors.message.message}</p>
+                      Send Another Message
+                    </Button>
+                  </motion.div>
+                ) : (
+                  <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+                    {/* Error banner */}
+                    {isSubmitError && (
+                      <div className="mb-5 p-4 rounded-lg border border-red-200 bg-red-50 text-red-700 text-sm">
+                        Something went wrong. Please try again or call us directly.
+                      </div>
                     )}
-                  </div>
+                    
+                    {/* Name + Phone row */}
+                    <div className="grid sm:grid-cols-2 gap-4">
+                      <div>
+                        <label className="block text-sm font-medium text-slate-800 mb-1.5">
+                          Full Name <span className="text-red-400">*</span>
+                        </label>
+                        <Input
+                          placeholder="Your full name"
+                          className="bg-slate-50/70 border-slate-200 focus:bg-white transition-colors rounded-lg"
+                          {...register('fullName')}
+                        />
+                        {errors.fullName && (
+                          <p className="mt-1.5 text-sm text-red-500">{errors.fullName.message}</p>
+                        )}
+                      </div>
+                      <div>
+                        <label className="block text-sm font-medium text-slate-800 mb-1.5">
+                          Phone <span className="text-red-400">*</span>
+                        </label>
+                        <Input
+                          placeholder="+91 98765 43210"
+                          className="bg-slate-50/70 border-slate-200 focus:bg-white transition-colors rounded-lg"
+                          {...register('phone')}
+                        />
+                        {errors.phone && (
+                          <p className="mt-1.5 text-sm text-red-500">{errors.phone.message}</p>
+                        )}
+                      </div>
+                    </div>
 
-                  {/* Submit */}
-                  <Button
-                    type="submit"
-                    disabled={isSubmitting || submitted}
-                    className="w-full bg-primary hover:bg-primary/90 shadow-sm shadow-primary/20 h-11"
-                  >
-                    {submitted ? (
-                      <span className="flex items-center gap-2">
-                        <svg className="w-4 h-4 animate-spin" viewBox="0 0 24 24" fill="none">
-                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
-                        </svg>
-                        Sending...
-                      </span>
-                    ) : (
-                      <span className="flex items-center gap-2">
-                        <Send className="w-4 h-4" /> Send Message
-                      </span>
-                    )}
-                  </Button>
+                    {/* Email */}
+                    <div>
+                      <label className="block text-sm font-medium text-slate-800 mb-1.5">
+                        Email <span className="text-slate-400 font-normal text-sm">(optional)</span>
+                      </label>
+                      <Input
+                        placeholder="your@email.com"
+                        className="bg-slate-50/70 border-slate-200 focus:bg-white transition-colors rounded-lg"
+                        {...register('email')}
+                      />
+                      {errors.email && (
+                        <p className="mt-1.5 text-sm text-red-500">{errors.email.message}</p>
+                      )}
+                    </div>
 
-                  <p className="text-center text-sm text-slate-400">
-                    By submitting, you agree to be contacted by our clinic team.
-                  </p>
-                </form>
+                    {/* Service */}
+                    <div>
+                      <label className="block text-sm font-medium text-slate-800 mb-1.5">
+                        Speciality / Service Needed
+                      </label>
+                      <select
+                        {...register('service')}
+                        className="w-full rounded-lg border border-slate-200 bg-slate-50/70 px-3 py-2 text-base text-slate-700 focus:bg-white focus:outline-none focus:ring-2 focus:ring-primary/30 transition-colors"
+                      >
+                        <option value="">Select a speciality...</option>
+                        {SERVICES.map((s) => (
+                          <option key={s} value={s}>{s}</option>
+                        ))}
+                      </select>
+                    </div>
+
+                    {/* Message */}
+                    <div>
+                      <label className="block text-sm font-medium text-slate-800 mb-1.5">
+                        Message <span className="text-red-400">*</span>
+                      </label>
+                      <Textarea
+                        rows={4}
+                        placeholder="Tell us what you need help with — symptoms, preferred timing, or any questions..."
+                        className="bg-slate-50/70 border-slate-200 focus:bg-white transition-colors resize-none rounded-lg"
+                        {...register('message')}
+                      />
+                      {errors.message && (
+                        <p className="mt-1.5 text-sm text-red-500">{errors.message.message}</p>
+                      )}
+                    </div>
+
+                    {/* Submit */}
+                    <Button
+                      type="submit"
+                      disabled={submitted}
+                      className="w-full bg-primary hover:bg-primary/90 shadow-sm shadow-primary/20 h-11 rounded-lg"
+                    >
+                      {submitted ? (
+                        <span className="flex items-center gap-2">
+                          <svg className="w-4 h-4 animate-spin" viewBox="0 0 24 24" fill="none">
+                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                          </svg>
+                          Sending...
+                        </span>
+                      ) : (
+                        <span className="flex items-center gap-2">
+                          <Send className="w-4 h-4" /> Send Message
+                        </span>
+                      )}
+                    </Button>
+
+                    <p className="text-center text-xs text-slate-400">
+                      By submitting, you agree to be contacted by our clinic team.
+                    </p>
+                  </form>
+                )}
               </Card>
+
             </motion.div>
 
             {/* ── MAP + QUICK LINKS ── */}
@@ -429,7 +474,8 @@ export function ContactContent() {
                   </div>
                 </div>
 
-                <Card className="rounded-2xl overflow-hidden border-slate-200/70 shadow-sm">
+                <Card className="rounded-xl overflow-hidden border-slate-200/70 shadow-sm">
+
                   <div className="relative w-full" style={{ aspectRatio: '16/10' }}>
                     <iframe
                       title="Clinic location map"
@@ -453,7 +499,8 @@ export function ContactContent() {
               </div>
 
               {/* Quick service links */}
-              <Card className="rounded-2xl border-slate-200/60 bg-white shadow-sm p-5">
+              <Card className="rounded-xl border-slate-200/60 bg-white shadow-sm p-5">
+
                 <h3 className="font-bold text-slate-900 text-base mb-3">Book by Speciality</h3>
                 <div className="space-y-2">
                   {quickLinks.map(({ icon: Icon, label, href }) => (
@@ -475,8 +522,9 @@ export function ContactContent() {
               </Card>
 
               {/* WhatsApp CTA card */}
-              <Card className="rounded-2xl border-emerald-200/60 bg-gradient-to-br from-emerald-50 to-teal-50 shadow-sm p-5 flex items-center gap-4">
-                <div className="h-12 w-12 rounded-2xl bg-emerald-500/15 text-emerald-600 flex items-center justify-center shrink-0 border border-emerald-500/20">
+              <Card className="rounded-xl border-emerald-200/60 bg-gradient-to-br from-emerald-50 to-teal-50 shadow-sm p-5 flex items-center gap-4">
+                <div className="h-12 w-12 rounded-xl bg-emerald-500/15 text-emerald-600 flex items-center justify-center shrink-0 border border-emerald-500/20">
+
                   <MessageCircle className="w-6 h-6" />
                 </div>
                 <div className="flex-1 min-w-0">
@@ -504,7 +552,8 @@ export function ContactContent() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-60px' }}
             transition={{ duration: 0.6 }}
-            className="relative overflow-hidden rounded-3xl border border-white/30 shadow-xl bg-gradient-to-r from-sky-500/20 via-teal-500/20 to-emerald-500/20"
+            className="relative overflow-hidden rounded-xl border border-white/30 shadow-xl bg-gradient-to-r from-sky-500/20 via-teal-500/20 to-emerald-500/20"
+
           >
             <div className="absolute -top-20 -right-20 h-64 w-64 rounded-full bg-sky-400/20 blur-3xl pointer-events-none" />
             <div className="absolute -bottom-16 -left-16 h-48 w-48 rounded-full bg-emerald-400/20 blur-3xl pointer-events-none" />

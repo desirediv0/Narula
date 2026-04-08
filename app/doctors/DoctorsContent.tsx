@@ -16,6 +16,7 @@ import {
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 
 import { doctors } from '@/lib/clinic-data'
+import { CLINIC_TIMINGS } from '@/lib/clinic-address'
 
 import {
   HeartPulse,
@@ -361,7 +362,7 @@ export function DoctorsContent() {
               </p>
               <div className="mt-5 grid grid-cols-2 gap-3">
                 {[
-                  { icon: Clock, text: 'Mon–Sat · 9 AM – 7 PM' },
+                  { icon: Clock, text: CLINIC_TIMINGS },
                   { icon: ShieldCheck, text: 'NABH-aligned Protocols' },
                   { icon: Stethoscope, text: '7 Specialities Available' },
                   { icon: HeartPulse, text: 'Patient-first Approach' },
@@ -420,7 +421,8 @@ export function DoctorsContent() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-60px' }}
             transition={{ duration: 0.6 }}
-            className="relative overflow-hidden rounded-3xl border border-white/30 shadow-xl bg-gradient-to-r from-sky-500/20 via-teal-500/20 to-emerald-500/20"
+            className="relative overflow-hidden rounded-xl border border-white/30 shadow-xl bg-gradient-to-r from-sky-500/20 via-teal-500/20 to-emerald-500/20"
+
           >
             <div className="absolute -top-20 -right-20 h-64 w-64 rounded-full bg-sky-400/20 blur-3xl pointer-events-none" />
             <div className="absolute -bottom-16 -left-16 h-48 w-48 rounded-full bg-emerald-400/20 blur-3xl pointer-events-none" />
