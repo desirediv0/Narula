@@ -245,17 +245,7 @@ export function Footer() {
           <p className="text-xs text-white/35">
             &copy; {currentYear} Narula Multispeciality Clinic. All rights reserved.
           </p>
-          <p className="text-xs text-white/35">
-            Designed &amp; built by{' '}
-            <a
-              href="https://desirediv.com/"
-              target="_blank"
-              rel="noreferrer"
-              className="text-sky-500/70 hover:text-sky-400 transition-colors"
-            >
-              Desirediv
-            </a>
-          </p>
+
         </div>
       </div>
     </footer>
