@@ -62,7 +62,7 @@ const homeServices = [
   {
     title: 'General Surgery',
     eyebrow: 'Surgical Excellence',
-    description: 'Hernia repair, gallbladder removal, appendectomy, and comprehensive surgical care.',
+    description: 'Expert, comprehensive surgical care with 35+ years of clinical excellence.',
     icon: ShieldCheck,
     href: '/services#surgery',
     color: 'from-sky-500/15 to-teal-500/5',
@@ -523,9 +523,9 @@ export default function Home() {
               transition={{ duration: 0.55 }}
             >
               <Card className="rounded-2xl border-slate-200/60 bg-white p-3 shadow-sm overflow-hidden">
-                <div className="relative h-[280px] sm:h-[320px] rounded-xl overflow-hidden bg-slate-100">
+                <div className="relative aspect-4/3 rounded-xl overflow-hidden bg-slate-100">
                   <Image
-                    src="/about.png"
+                    src="/about.jpeg"
                     alt="Narula Multispeciality Clinic"
                     fill
                     sizes="(max-width: 640px) 100vw, 50vw"

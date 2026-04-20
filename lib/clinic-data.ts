@@ -104,10 +104,8 @@ export const services = [
     icon: '🏥',
     description: 'Comprehensive surgical procedures with expert care',
     features: [
-      'Hernia Repair',
-      'Appendectomy',
-      'Gallbladder Surgery',
-      'Thyroid Surgery',
+      'Comprehensive Surgical Care',
+      'Minor Surgical Procedures',
       'Trauma Surgery',
       'Medico-legal Consultations',
     ],

@@ -106,10 +106,10 @@ export function ServicesContent() {
         icon: serviceIcon.surgery,
         anchor: 'surgery',
         bullets: [
+          'Comprehensive surgical care',
           'Minor surgical procedures',
-          'Hernia repair',
-          'Gallbladder removal (cholecystectomy)',
-          'Appendectomy & abdominal surgeries',
+          'Trauma & emergency surgery',
+          'GI surgical consultations',
         ],
       },
       {
@@ -225,12 +225,12 @@ export function ServicesContent() {
         description:
           'Led by Dr Sanjay Narula — a highly experienced general surgeon — our surgical department offers comprehensive procedures with expert care, faster healing, and dependable recovery support.',
         bullets: [
+          'Comprehensive surgical care',
           'Minor surgical procedures',
-          'Hernia repair (inguinal, umbilical)',
-          'Cholecystectomy (gallbladder removal)',
-          'Appendectomy (emergency & elective)',
-          'Abdominal & GI surgical consultations',
+          'Trauma & emergency surgery',
+          'GI surgical consultations',
           'Wound care & recovery guidance',
+          'Medico-legal surgical assessments',
         ],
       },
       {
