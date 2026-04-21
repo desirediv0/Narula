@@ -280,7 +280,12 @@ export default function Home() {
 
                 {/* Hero image */}
                 <div className="relative h-[340px] sm:h-[380px] rounded-2xl overflow-hidden bg-gradient-to-br from-sky-100 to-teal-50">
-                  <video
+
+                  <Image src={"/hero.jpeg"} alt="Hero Image" className="object-cover"
+                    width={1000}
+                    height={1000}
+                  />
+                  {/* <video
                     src={HERO_VIDEO_URL}
                     autoPlay
                     muted
@@ -288,7 +293,7 @@ export default function Home() {
                     playsInline
                     className="absolute inset-0 w-full h-full object-cover object-top"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/20 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/20 via-transparent to-transparent" /> */}
                 </div>
 
                 {/* Doctor chips row */}
