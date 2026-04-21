@@ -279,9 +279,9 @@ export default function Home() {
               <div className="relative rounded-3xl bg-white/60 backdrop-blur-sm border border-white/80 shadow-2xl shadow-sky-500/10 overflow-hidden p-4">
 
                 {/* Hero image */}
-                <div className="relative h-[340px] sm:h-[380px] rounded-2xl overflow-hidden bg-gradient-to-br from-sky-100 to-teal-50">
+                <div className="relative aspect-[9/11] rounded-2xl overflow-hidden bg-gradient-to-br from-sky-100 to-teal-50">
 
-                  <Image src={"/hero.jpeg"} alt="Hero Image" className="object-cover"
+                  <Image src={"/home.jpeg"} alt="Hero Image" className="object-cover"
                     width={1000}
                     height={1000}
                   />
